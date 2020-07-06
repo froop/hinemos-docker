@@ -1,21 +1,17 @@
-FROM centos:7
+FROM openjdk8centos7
 
-ENV HINEMOS_MAJOR 6.2
-ENV HINEMOS_MINOR 2
+# Hinemos Version
+ENV MAJOR 6.2
+ENV MINOR 2
 
-RUN yum -y update \
-    && yum -y install java-1.8.0-openjdk vim-common net-snmp \
-    && yum -y install https://github.com/hinemos/hinemos/releases/download/v${HINEMOS_MAJOR}.${HINEMOS_MINOR}/hinemos-${HINEMOS_MAJOR}-manager-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-1.el7.x86_64.rpm \
-    && yum clean all \
-    && rm -rf /var/cache/yum
+RUN yum -y install net-snmp && yum clean all
+RUN yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-manager-${MAJOR}.${MINOR}-1.el7.x86_64.rpm && yum clean all
+RUN yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.el.noarch.rpm && yum clean all
+
+RUN systemctl enable snmpd.service
 
 VOLUME /opt/hinemos/var/data
 
 EXPOSE 8080/tcp 8081/tcp 8082/tcp 514/tcp 514/udp 162/udp
 
-WORKDIR /opt/hinemos/bin
-
-COPY manager/run.sh .
-
-CMD ["./run.sh"]
-
+CMD /sbin/init

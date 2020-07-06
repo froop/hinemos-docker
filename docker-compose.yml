@@ -2,11 +2,15 @@ version: '3'
 
 services:
     manager:
-        # build:
-        #     context: .
-        #     dockerfile: manager/Dockerfile
-        # image: hinemos-manager
-        image: aminami1127/hinemos-manager
+        build:
+            context: .
+            dockerfile: manager/Dockerfile
+        image: hinemos-manager:6.2.2
+        ports:
+            - '8080-8082:8080-8082'
+            - '514:514'
+            - '514:514/udp'
+            - '162:162/udp'
         volumes:
             - hinemos-data:/opt/hinemos/var/data/
         hostname: centos_manager
@@ -14,32 +18,37 @@ services:
             hinemos_net:
                 ipv4_address: 172.31.1.10
         container_name: hinemos-manager
-
-    agent:
-        # build:
-        #     context: .
-        #     dockerfile: agent/Dockerfile
-        # image: hinemos-agent
-        image: aminami1127/hinemos-agent
-        hostname: centos_node
-        networks:
-            hinemos_net:
-                ipv4_address: 172.31.1.11
-        container_name: hinemos-agent
+        # privileged: true
+        cap_add:
+            - SYS_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        restart: unless-stopped
 
     web:
-        # build:
-        #     context: .
-        #     dockerfile: web/Dockerfile
-        # image: hinemos-web
-        image: aminami1127/hinemos-web
+        build:
+            context: .
+            dockerfile: web/Dockerfile
+        image: hinemos-web:6.2.2
         ports:
             - '80:80'
         hostname: centos_web
         networks:
             hinemos_net:
-                ipv4_address: 172.31.1.12
+                ipv4_address: 172.31.1.11
         container_name: hinemos-web
+        # privileged: true
+        cap_add:
+            - SYS_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        depends_on:
+            - manager
+        restart: unless-stopped
 
 volumes:
     hinemos-data:
