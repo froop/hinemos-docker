@@ -1,7 +1,29 @@
 # hinemos-playground
 
+## Usage
+
+* コマンド
+
 ```
-docker build -t centos7jp ./centos7jp
-docker build -t openjdk8centos7 ./openjdk8centos7
-docker-compose up -d --build
+git clone https://github.com/froop/hinemos-playground.git
+cd hinemos-playground
+chmod +x build.sh
+./build.sh              # build docker images
+docker-compose up -d    # 起動
+docker-compose down     # 停止
+docker-compose down -v  # 停止(設定も削除)
+```
+
+* ログイン
+```
+1. ブラウザでhttp://localhostにアクセス
+2. 接続先URLをhttp://manager:8080/HinemosWS/に変更
+3. パスワードに"hinemos"と入力しログイン
+```
+
+* IPアドレス
+
+```
+1. マネージャ  　  : 172.31.1.10
+2. Webクライアント : 172.31.1.11
 ```

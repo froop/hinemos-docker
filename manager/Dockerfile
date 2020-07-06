@@ -1,4 +1,4 @@
-FROM openjdk8centos7
+FROM openjdk-centos7:8
 
 # Hinemos Version
 ENV MAJOR 6.2
