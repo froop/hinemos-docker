@@ -12,6 +12,12 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
+docker build -t manager-base manager-base
+status=$?
+if [ $status -ne 0 ]; then
+  exit $status
+fi
+
 docker-compose build
 status=$?
 if [ $status -ne 0 ]; then
