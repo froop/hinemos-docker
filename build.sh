@@ -18,6 +18,12 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
+docker build -t web-base web-base
+status=$?
+if [ $status -ne 0 ]; then
+  exit $status
+fi
+
 docker-compose build
 status=$?
 if [ $status -ne 0 ]; then
