@@ -5,8 +5,8 @@
 * コマンド
 
 ```
-git clone https://github.com/froop/hinemos-playground.git
-cd hinemos-playground
+git clone https://github.com/froop/hinemos-docker.git
+cd hinemos-docker
 chmod +x build.sh
 
 ./build.sh              # build docker images
@@ -14,6 +14,7 @@ docker-compose up -d    # 起動
 docker-compose stop     # 停止
 docker-compose down     # 削除(DBは残す)
 docker-compose down -v  # 削除(DBも削除)
+./clean.sh              # clean docker images
 
 docker exec -it hinemos-manager /bin/bash
 docker exec -it hinemos-web /bin/bash
