@@ -1,4 +1,4 @@
-# hinemos-playground
+# hinemos-docker
 
 ## Usage
 
