@@ -1,4 +1,4 @@
-FROM manager-base
+FROM hinemos-manager-base
 
 # Hinemos Version
 ENV MAJOR 6.2

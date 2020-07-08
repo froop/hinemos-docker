@@ -1,4 +1,4 @@
-FROM web-base
+FROM hinemos-web-base
 
 # hinemos version
 ENV MAJOR 6.2

@@ -12,13 +12,13 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t manager-base manager-base
+docker build -t hinemos-manager-base manager-base
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t web-base web-base
+docker build -t hinemos-web-base web-base
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
