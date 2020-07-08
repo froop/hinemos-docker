@@ -1,4 +1,4 @@
-# /bin/bash
+#!/bin/bash
 
 docker-compose down --rmi all
 docker rmi web-base
