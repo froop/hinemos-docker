@@ -14,9 +14,6 @@ docker-compose stop     # 停止
 docker-compose down     # 削除(DBは残す)
 docker-compose down -v  # 削除(DBも削除)
 ./clean.sh              # clean docker images
-
-docker exec -it hinemos-manager /bin/bash
-docker exec -it hinemos-web /bin/bash
 ```
 
 * ログイン
