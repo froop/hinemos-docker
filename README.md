@@ -7,7 +7,6 @@
 ```
 git clone https://github.com/froop/hinemos-docker.git
 cd hinemos-docker
-chmod +x build.sh
 
 ./build.sh              # build docker images
 docker-compose up -d    # 起動
