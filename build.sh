@@ -24,6 +24,12 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
+docker build -t hinemos-manager:6.2.2 manager-6.2.2
+status=$?
+if [ $status -ne 0 ]; then
+  exit $status
+fi
+
 docker-compose build
 status=$?
 if [ $status -ne 0 ]; then

@@ -5,7 +5,7 @@ services:
         build:
             context: ./manager
             dockerfile: Dockerfile
-        image: hinemos-manager:6.2.2
+        image: hinemos-manager:6.2.2-custom
         ports:
             - '8080-8082:8080-8082'
             - '514:514'
