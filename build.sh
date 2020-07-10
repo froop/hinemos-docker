@@ -30,6 +30,12 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
+docker build -t hinemos-web:6.2.2 web-6.2.2
+status=$?
+if [ $status -ne 0 ]; then
+  exit $status
+fi
+
 docker-compose build
 status=$?
 if [ $status -ne 0 ]; then

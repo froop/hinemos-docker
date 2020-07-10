@@ -3,9 +3,9 @@ version: '3'
 services:
     manager:
         build:
-            context: ./manager
+            context: ./manager-6.2.2-patch
             dockerfile: Dockerfile
-        image: hinemos-manager:6.2.2-custom
+        image: hinemos-manager:6.2.2-patch
         ports:
             - '8080-8082:8080-8082'
             - '514:514'
@@ -30,9 +30,9 @@ services:
 
     web:
         build:
-            context: ./web
+            context: ./web-6.2.2-patch
             dockerfile: Dockerfile
-        image: hinemos-web:6.2.2
+        image: hinemos-web:6.2.2-patch
         ports:
             - '80:80'
         hostname: centos_web
