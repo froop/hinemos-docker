@@ -8,4 +8,7 @@ RUN systemctl enable snmpd.service
 
 EXPOSE 8080/tcp 8081/tcp 8082/tcp 514/tcp 514/udp 162/udp
 
+# for remote debug
+EXPOSE 4000/tcp
+
 CMD ["/sbin/init"]
