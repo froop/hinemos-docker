@@ -8,12 +8,12 @@
 git clone https://github.com/froop/hinemos-docker.git
 cd hinemos-docker
 
-./build.sh              # build docker images
+./build.sh              # build images
 docker-compose up -d    # 起動
 docker-compose stop     # 停止
-docker-compose down     # 削除(DBは残す)
-docker-compose down -v  # 削除(DBも削除)
-./clean.sh              # clean docker images
+docker-compose down     # 削除(container)
+# docker-compose down -v  # 削除(with volume)
+./clean.sh              # clean images
 ```
 
 * ログイン
