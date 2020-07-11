@@ -12,8 +12,6 @@ services:
             - '514:514/udp'
             - '162:162/udp'
             - '4000:4000'
-        volumes:
-            - hinemos-data:/opt/hinemos/var/data/
         hostname: centos_manager
         networks:
             hinemos_net:
@@ -50,9 +48,6 @@ services:
         depends_on:
             - manager
         restart: unless-stopped
-
-volumes:
-    hinemos-data:
 
 networks:
     hinemos_net:
