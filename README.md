@@ -29,3 +29,13 @@ docker-compose down     # 削除(container)
 1. マネージャ  　  : 172.31.1.10
 2. Webクライアント : 172.31.1.11
 ```
+
+## Build
+
+```
+# ビルド対象ディレクトリ(＝タグ名)を指定
+vi .env
+
+# イメージをビルドして起動
+docker-compose up -d --build
+```
