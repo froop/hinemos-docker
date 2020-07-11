@@ -11,8 +11,6 @@ RUN yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR
 
 RUN yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.el.noarch.rpm && yum clean all
 
-VOLUME /opt/hinemos/var/data
-
 # enable remote debug
 RUN sed -i "s/#\(.* -Xdebug \)/\1/" /opt/hinemos/etc/hinemos.cfg
 
