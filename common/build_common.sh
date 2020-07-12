@@ -24,7 +24,7 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t hinemos-${SERVICE}:${VERSION_TAG} dockerfiles/${SERVICE}-${HINEMOS_VER} --build-arg FROM=hinemos-${SERVICE}-base:openjdk${JAVA_VER}-${OS} --build-arg MAJOR=${HINMEOS_MAJOR} --build-arg MINOR=${HINEMOS_MINOR}
+docker build -t hinemos-${SERVICE}:${VERSION_TAG} dockerfiles/${SERVICE}-package --build-arg FROM=hinemos-${SERVICE}-base:openjdk${JAVA_VER}-${OS} --build-arg MAJOR=${HINMEOS_MAJOR} --build-arg MINOR=${HINEMOS_MINOR}
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
