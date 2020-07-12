@@ -30,7 +30,7 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-# args: FROM_TAG=${VERSION_TAG}
+# args: VERSION_TAG
 docker-compose build ${SERVICE}
 status=$?
 if [ $status -ne 0 ]; then
