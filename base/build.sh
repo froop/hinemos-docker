@@ -1,9 +1,5 @@
 #!/bin/bash
 
-OS=centos7jp
-#OS=amzn2jp
-JAVA_VER=8
-
 docker build -t ${OS} base/${OS}
 status=$?
 if [ $status -ne 0 ]; then

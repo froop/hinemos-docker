@@ -39,11 +39,12 @@ vi .env
 
 # 依存イメージが存在しなければビルド(OS, Java, Hinemos packages)
 docker images
-vi base/build.sh
-vi manager/build.sh
-vi agent/build.sh
-vi web/build.sh
+vi build.sh
 ./build.sh
+# base/build.sh
+# manager/build.sh
+# agent/build.sh
+# web/build.sh
 
 # イメージをビルドして起動
 docker-compose up -d --build
