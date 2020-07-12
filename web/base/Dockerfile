@@ -1,4 +1,5 @@
-FROM openjdk-centos7:8
+ARG FROM
+FROM ${FROM}
 
 RUN yum -y install unzip vlgothic-p-fonts && yum clean all
 

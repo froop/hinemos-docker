@@ -27,14 +27,23 @@ docker-compose down     # 削除(container)
 
 ```
 1. マネージャ  　  : 172.31.1.10
-2. Webクライアント : 172.31.1.11
+2. エージェント    : 172.31.1.11
+3. Webクライアント : 172.31.1.12
 ```
 
 ## Build
 
 ```
-# ビルド対象ディレクトリ(＝タグ名)を指定
+# ビルド対象ディレクトリ(＝タグ名)やOS+Java環境を指定
 vi .env
+
+# 依存イメージが存在しなければビルド(OS, Java, Hinemos packages)
+docker images
+./build.sh
+# base/build.sh
+# manager/build.sh
+# agent/build.sh
+# web/build.sh
 
 # イメージをビルドして起動
 docker-compose up -d --build

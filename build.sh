@@ -1,42 +1,24 @@
 #!/bin/bash
 
-docker build -t centos7jp centos7jp
+base/build.sh
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t openjdk-centos7:8 openjdk-centos7 --build-arg VERSION=8
+manager/build.sh
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t hinemos-manager-base manager-base
+agent/build.sh
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t hinemos-web-base web-base
-status=$?
-if [ $status -ne 0 ]; then
-  exit $status
-fi
-
-docker build -t hinemos-manager:6.2.2 manager-6.2.2
-status=$?
-if [ $status -ne 0 ]; then
-  exit $status
-fi
-
-docker build -t hinemos-web:6.2.2 web-6.2.2
-status=$?
-if [ $status -ne 0 ]; then
-  exit $status
-fi
-
-docker-compose build
+web/build.sh
 status=$?
 if [ $status -ne 0 ]; then
   exit $status

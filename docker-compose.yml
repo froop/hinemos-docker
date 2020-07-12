@@ -3,16 +3,18 @@ version: '3'
 services:
     manager:
         build:
-            context: ./manager-${MANAGER_TAG}
-            dockerfile: Dockerfile
-        image: hinemos-manager:${MANAGER_TAG}
+            context: manager/${MANAGER_MAJOR}.${MANAGER_MINOR}/${MANAGER_TAG}
+            dockerfile: ../../../common/DockerfilePatch
+            args:
+                - FROM_TAG=hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}:openjdk${JAVA_VER}-${OS}
+        image: hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'
             - '514:514'
             - '514:514/udp'
             - '162:162/udp'
             - '4000:4000'
-        hostname: centos_manager
+        hostname: hinemos_manager
         networks:
             hinemos_net:
                 ipv4_address: 172.31.1.10
@@ -26,17 +28,41 @@ services:
             - /sys/fs/cgroup:/sys/fs/cgroup:ro
         restart: unless-stopped
 
-    web:
+    agent:
         build:
-            context: ./web-${WEB_TAG}
-            dockerfile: Dockerfile
-        image: hinemos-web:${WEB_TAG}
-        ports:
-            - '80:80'
-        hostname: centos_web
+            context: agent/${AGENT_MAJOR}.${AGENT_MINOR}/${AGENT_TAG}
+            dockerfile: ../../../common/DockerfilePatch
+            args:
+                - FROM_TAG=hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:openjdk${JAVA_VER}-${OS}
+        image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:${AGENT_TAG}
+        hostname: hinemos-agent
         networks:
             hinemos_net:
                 ipv4_address: 172.31.1.11
+        container_name: hinemos-agent
+        cap_add:
+            - SYS_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        depends_on:
+            - manager
+        restart: unless-stopped
+
+    web:
+        build:
+            context: web/${WEB_MAJOR}.${WEB_MINOR}/${WEB_TAG}
+            dockerfile: ../../../common/DockerfilePatch
+            args:
+                - FROM_TAG=hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:openjdk${JAVA_VER}-${OS}
+        image: hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:${WEB_TAG}
+        ports:
+            - '80:80'
+        hostname: hinemos_web
+        networks:
+            hinemos_net:
+                ipv4_address: 172.31.1.12
         container_name: hinemos-web
         # privileged: true
         cap_add:
