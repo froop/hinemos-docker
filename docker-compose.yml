@@ -3,11 +3,11 @@ version: '3'
 services:
     manager:
         build:
-            context: manager/${MANAGER_VERSION}/${MANAGER_TAG}
+            context: manager/${MANAGER_MAJOR}.${MANAGER_MINOR}/${MANAGER_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=hinemos-manager-${MANAGER_VERSION}:${JRE_TAG}
-        image: hinemos-manager-${MANAGER_VERSION}:${MANAGER_TAG}
+                - FROM_TAG=hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}:openjdk${JAVA_VER}-${OS}
+        image: hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'
             - '514:514'
@@ -30,11 +30,11 @@ services:
 
     agent:
         build:
-            context: agent/${AGENT_VERSION}/${AGENT_TAG}
+            context: agent/${AGENT_MAJOR}.${AGENT_MINOR}/${AGENT_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=hinemos-agent-${AGENT_VERSION}:${JRE_TAG}
-        image: hinemos-agent-${AGENT_VERSION}:${AGENT_TAG}
+                - FROM_TAG=hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:openjdk${JAVA_VER}-${OS}
+        image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:${AGENT_TAG}
         hostname: hinemos-agent
         networks:
             hinemos_net:
@@ -52,11 +52,11 @@ services:
 
     web:
         build:
-            context: web/${WEB_VERSION}/${WEB_TAG}
+            context: web/${WEB_MAJOR}.${WEB_MINOR}/${WEB_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=hinemos-web-${WEB_VERSION}:${JRE_TAG}
-        image: hinemos-web-${WEB_VERSION}:${WEB_TAG}
+                - FROM_TAG=hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:openjdk${JAVA_VER}-${OS}
+        image: hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:${WEB_TAG}
         ports:
             - '80:80'
         hostname: hinemos_web

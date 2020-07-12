@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. .env
+
 docker build -t ${OS} base/${OS}
 status=$?
 if [ $status -ne 0 ]; then

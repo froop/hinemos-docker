@@ -39,7 +39,6 @@ vi .env
 
 # 依存イメージが存在しなければビルド(OS, Java, Hinemos packages)
 docker images
-vi build.sh
 ./build.sh
 # base/build.sh
 # manager/build.sh
