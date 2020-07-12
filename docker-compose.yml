@@ -30,7 +30,7 @@ services:
         build:
             context: ./agent-${AGENT_TAG}
             dockerfile: Dockerfile
-        image: hinemos-agent
+        image: hinemos-agent:${AGENT_TAG}
         hostname: hinemos-agent
         networks:
             hinemos_net:
