@@ -3,11 +3,11 @@ version: '3'
 services:
     manager:
         build:
-            context: ./manager-${MANAGER_TAG}
-            dockerfile: ../common/DockerfilePatch
+            context: manager/${MANAGER_VERSION}/${MANAGER_TAG}
+            dockerfile: ../../../common/DockerfilePatch
             args:
                 - FROM_TAG=hinemos-manager:${VERSION_TAG:-latest}
-        image: hinemos-manager:${MANAGER_TAG}
+        image: hinemos-manager-${MANAGER_VERSION}:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'
             - '514:514'
@@ -30,11 +30,11 @@ services:
 
     agent:
         build:
-            context: ./agent-${AGENT_TAG}
-            dockerfile: ../common/DockerfilePatch
+            context: agent/${AGENT_VERSION}/${AGENT_TAG}
+            dockerfile: ../../../common/DockerfilePatch
             args:
                 - FROM_TAG=hinemos-agent:${VERSION_TAG:-latest}
-        image: hinemos-agent:${AGENT_TAG}
+        image: hinemos-agent-${AGENT_VERSION}:${AGENT_TAG}
         hostname: hinemos-agent
         networks:
             hinemos_net:
@@ -50,11 +50,11 @@ services:
 
     web:
         build:
-            context: ./web-${WEB_TAG}
-            dockerfile: ../common/DockerfilePatch
+            context: web/${WEB_VERSION}/${WEB_TAG}
+            dockerfile: ../../../common/DockerfilePatch
             args:
                 - FROM_TAG=hinemos-web:${VERSION_TAG:-latest}
-        image: hinemos-web:${WEB_TAG}
+        image: hinemos-web-${WEB_VERSION}:${WEB_TAG}
         ports:
             - '80:80'
         hostname: hinemos_web
