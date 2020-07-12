@@ -1,4 +1,5 @@
-FROM openjdk-centos7:8
+ARG FROM
+FROM ${FROM}
 
 # install packeges
 RUN yum -y install vim-common net-snmp && yum clean all # required

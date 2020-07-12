@@ -1,8 +1,9 @@
-FROM hinemos-manager-base
+ARG FROM
+FROM ${FROM}
 
 # Hinemos Version
-ENV MAJOR 6.2
-ENV MINOR 2
+ARG MAJOR
+ARG MINOR
 
 COPY initdb/* /tmp/initdb/
 WORKDIR /tmp/initdb
