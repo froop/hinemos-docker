@@ -1,18 +1,18 @@
 #!/bin/bash
 
-./build_manager.sh
+./manager/build.sh
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
 fi
 
-./build_agent.sh
+./agent/build.sh
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
 fi
 
-./build_web.sh
+./web/build.sh
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
