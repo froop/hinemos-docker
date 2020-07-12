@@ -34,8 +34,16 @@ docker-compose down     # 削除(container)
 ## Build
 
 ```
-# ビルド対象ディレクトリ(＝タグ名)を指定
+# ビルド対象ディレクトリ(＝タグ名)やOS+Java環境を指定
 vi .env
+
+# 依存イメージが存在しなければビルド(OS, Java, Hinemos packages)
+docker images
+vi base/build.sh
+vi manager/build.sh
+vi agent/build.sh
+vi web/build.sh
+./build.sh
 
 # イメージをビルドして起動
 docker-compose up -d --build
