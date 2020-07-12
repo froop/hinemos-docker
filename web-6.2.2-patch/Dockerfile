@@ -1,4 +1,4 @@
-ARG JRE_TAG
-FROM hinemos-web:6.2.2-${JRE_TAG}
+ARG HINEMOS_TAG
+FROM hinemos-web:${HINEMOS_TAG}
 
 

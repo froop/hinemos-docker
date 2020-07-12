@@ -1,5 +1,5 @@
-ARG JRE_TAG
-FROM hinemos-agent:6.2.2-${JRE_TAG}
+ARG HINEMOS_TAG
+FROM hinemos-agent:${HINEMOS_TAG}
 
 COPY patch/* /tmp/patch/
 WORKDIR /tmp/patch

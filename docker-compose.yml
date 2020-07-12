@@ -6,7 +6,7 @@ services:
             context: ./manager-${MANAGER_TAG}
             dockerfile: Dockerfile
             args:
-                - JRE_TAG=openjdk8-centos7jp
+                - HINEMOS_TAG=${HINEMOS_TAG}
         image: hinemos-manager:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'
@@ -33,7 +33,7 @@ services:
             context: ./agent-${AGENT_TAG}
             dockerfile: Dockerfile
             args:
-                - JRE_TAG=openjdk8-centos7jp
+                - HINEMOS_TAG=${HINEMOS_TAG}
         image: hinemos-agent:${AGENT_TAG}
         hostname: hinemos-agent
         networks:
@@ -53,7 +53,7 @@ services:
             context: ./web-${WEB_TAG}
             dockerfile: Dockerfile
             args:
-                - JRE_TAG=openjdk8-centos7jp
+                - HINEMOS_TAG=${HINEMOS_TAG}
         image: hinemos-web:${WEB_TAG}
         ports:
             - '80:80'
