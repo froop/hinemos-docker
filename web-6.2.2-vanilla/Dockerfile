@@ -1,4 +1,0 @@
-ARG HINEMOS_TAG
-FROM hinemos-web:${HINEMOS_TAG}
-
-

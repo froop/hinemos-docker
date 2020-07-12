@@ -1,5 +1,5 @@
-ARG HINEMOS_TAG
-FROM hinemos-manager:${HINEMOS_TAG}
+ARG FROM_TAG
+FROM ${FROM_TAG}
 
 COPY patch/* /tmp/patch/
 WORKDIR /tmp/patch

@@ -4,9 +4,9 @@ services:
     manager:
         build:
             context: ./manager-${MANAGER_TAG}
-            dockerfile: Dockerfile
+            dockerfile: ../common/DockerfilePatch
             args:
-                - HINEMOS_TAG=${HINEMOS_TAG}
+                - FROM_TAG=hinemos-manager:${VERSION_TAG:-latest}
         image: hinemos-manager:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'
@@ -31,9 +31,9 @@ services:
     agent:
         build:
             context: ./agent-${AGENT_TAG}
-            dockerfile: Dockerfile
+            dockerfile: ../common/DockerfilePatch
             args:
-                - HINEMOS_TAG=${HINEMOS_TAG}
+                - FROM_TAG=hinemos-agent:${VERSION_TAG:-latest}
         image: hinemos-agent:${AGENT_TAG}
         hostname: hinemos-agent
         networks:
@@ -51,9 +51,9 @@ services:
     web:
         build:
             context: ./web-${WEB_TAG}
-            dockerfile: Dockerfile
+            dockerfile: ../common/DockerfilePatch
             args:
-                - HINEMOS_TAG=${HINEMOS_TAG}
+                - FROM_TAG=hinemos-web:${VERSION_TAG:-latest}
         image: hinemos-web:${WEB_TAG}
         ports:
             - '80:80'
