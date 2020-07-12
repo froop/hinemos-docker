@@ -12,12 +12,30 @@ services:
             - '514:514/udp'
             - '162:162/udp'
             - '4000:4000'
-        hostname: centos_manager
+        hostname: hinemos_manager
         networks:
             hinemos_net:
                 ipv4_address: 172.31.1.10
         container_name: hinemos-manager
         # privileged: true
+        cap_add:
+            - SYS_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        restart: unless-stopped
+
+    agent:
+        build:
+            context: ./agent-${AGENT_TAG}
+            dockerfile: Dockerfile
+        image: hinemos-agent
+        hostname: hinemos-agent
+        networks:
+            hinemos_net:
+                ipv4_address: 172.31.1.11
+        container_name: hinemos-agent
         cap_add:
             - SYS_ADMIN
         security_opt:
@@ -33,10 +51,10 @@ services:
         image: hinemos-web:${WEB_TAG}
         ports:
             - '80:80'
-        hostname: centos_web
+        hostname: hinemos_web
         networks:
             hinemos_net:
-                ipv4_address: 172.31.1.11
+                ipv4_address: 172.31.1.12
         container_name: hinemos-web
         # privileged: true
         cap_add:
