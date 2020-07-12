@@ -1,4 +1,4 @@
-ARG OS=centos7jp
+ARG OS
 FROM ${OS}
 
 ARG VERSION=8
