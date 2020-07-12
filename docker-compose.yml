@@ -6,7 +6,7 @@ services:
             context: manager/${MANAGER_VERSION}/${MANAGER_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=hinemos-manager-${MANAGER_VERSION}:${JRE_TAG:-latest}
+                - FROM_TAG=hinemos-manager-${MANAGER_VERSION}:${JRE_TAG}
         image: hinemos-manager-${MANAGER_VERSION}:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'
@@ -33,7 +33,7 @@ services:
             context: agent/${AGENT_VERSION}/${AGENT_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=hinemos-agent-${AGENT_VERSION}:${JRE_TAG:-latest}
+                - FROM_TAG=hinemos-agent-${AGENT_VERSION}:${JRE_TAG}
         image: hinemos-agent-${AGENT_VERSION}:${AGENT_TAG}
         hostname: hinemos-agent
         networks:
@@ -55,7 +55,7 @@ services:
             context: web/${WEB_VERSION}/${WEB_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=hinemos-web-${WEB_VERSION}:${JRE_TAG:-latest}
+                - FROM_TAG=hinemos-web-${WEB_VERSION}:${JRE_TAG}
         image: hinemos-web-${WEB_VERSION}:${WEB_TAG}
         ports:
             - '80:80'
