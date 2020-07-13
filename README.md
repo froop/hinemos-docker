@@ -34,7 +34,7 @@ docker-compose down     # 削除(container)
 ## Build
 
 ```
-# ビルド対象ディレクトリ(＝タグ名)やOS+Java環境を指定
+# バージョン、環境(OS, Java)、ビルド対象ディレクトリ(＝タグ名)を指定
 vi .env
 
 # 依存イメージが存在しなければビルド(OS, Java, Hinemos packages)

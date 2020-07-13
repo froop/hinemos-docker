@@ -46,8 +46,6 @@ services:
             - seccomp:unconfined
         volumes:
             - /sys/fs/cgroup:/sys/fs/cgroup:ro
-        depends_on:
-            - manager
         restart: unless-stopped
 
     web:
@@ -71,8 +69,6 @@ services:
             - seccomp:unconfined
         volumes:
             - /sys/fs/cgroup:/sys/fs/cgroup:ro
-        depends_on:
-            - manager
         restart: unless-stopped
 
 networks:
