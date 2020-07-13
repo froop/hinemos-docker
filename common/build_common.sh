@@ -2,8 +2,8 @@
 
 SERVICE=$1
 
-export HINEMOS_VER=${HINEMOS_MAJOR}.${HINEMOS_MINOR}
-export JRE_TAG=openjdk${JAVA_VER}-${OS}
+HINEMOS_VER=${HINEMOS_MAJOR}.${HINEMOS_MINOR}
+JRE_TAG=openjdk${JAVA_VER}-${OS}
 
 docker build -t hinemos-${SERVICE}-base:${JRE_TAG} ${SERVICE}/base --build-arg FROM=openjdk-${OS}:${JAVA_VER}
 status=$?
@@ -17,7 +17,6 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-# args: JRE_TAG
 docker-compose build ${SERVICE}
 status=$?
 if [ $status -ne 0 ]; then
