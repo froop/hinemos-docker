@@ -4,7 +4,7 @@ services:
     manager:
         build:
             context: manager/${MANAGER_MAJOR}/${MANAGER_MINOR}/${MANAGER_TAG}
-            dockerfile: ../../../../common/DockerfilePatch
+            dockerfile: ../../../common/Dockerfile
             args:
                 - FROM_TAG=hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}:openjdk${JAVA_VER}-${OS}
         image: hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}:${MANAGER_TAG}
