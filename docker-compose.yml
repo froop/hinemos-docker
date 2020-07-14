@@ -31,7 +31,7 @@ services:
     agent:
         build:
             context: agent/${AGENT_MAJOR}/${AGENT_MINOR}/${AGENT_TAG}
-            dockerfile: ../../../../common/DockerfilePatch
+            dockerfile: ../../../common/Dockerfile
             args:
                 - FROM_TAG=hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:openjdk${JAVA_VER}-${OS}
         image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:${AGENT_TAG}
@@ -51,7 +51,7 @@ services:
     web:
         build:
             context: web/${WEB_MAJOR}/${WEB_MINOR}/${WEB_TAG}
-            dockerfile: ../../../../common/DockerfilePatch
+            dockerfile: ../../../common/Dockerfile
             args:
                 - FROM_TAG=hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:openjdk${JAVA_VER}-${OS}
         image: hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:${WEB_TAG}
