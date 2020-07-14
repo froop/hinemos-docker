@@ -3,7 +3,7 @@
 SERVICE=$1
 JRE_TAG=openjdk${JAVA_VER}-${OS}
 
-docker build -t hinemos-${SERVICE}-base:${JRE_TAG} ${SERVICE}/base --build-arg FROM=openjdk-${OS}:${JAVA_VER}
+docker build -t hinemos-${SERVICE}-base:${JRE_TAG} ${SERVICE}/base --build-arg FROM=hinemos-base:openjdk${JAVA_VER}-${OS}
 status=$?
 if [ $status -ne 0 ]; then
   exit $status

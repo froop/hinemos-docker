@@ -13,3 +13,9 @@ status=$?
 if [ $status -ne 0 ]; then
   exit $status
 fi
+
+docker build -t hinemos-base:openjdk${JAVA_VER}-${OS} base/hinemos-base --build-arg FROM=openjdk-${OS}:${JAVA_VER}
+status=$?
+if [ $status -ne 0 ]; then
+  exit $status
+fi
