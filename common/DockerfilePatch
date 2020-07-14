@@ -2,7 +2,6 @@ ARG FROM_TAG
 FROM ${FROM_TAG}
 
 COPY patch/* /tmp/patch/
-WORKDIR /tmp/patch
-RUN ./patch.sh
+RUN /tmp/apply_patches.sh /tmp/patch
 
 WORKDIR /root
