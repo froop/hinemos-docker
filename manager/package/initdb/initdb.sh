@@ -6,7 +6,7 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-./run_sql.sh delete_SNMPTRAP_DEFAULT.sql
+../common/run_sql.sh delete_SNMPTRAP_DEFAULT.sql
 status=$?
 if [ $status -ne 0 ]; then
   exit $status
