@@ -20,7 +20,7 @@ if [ $status -ne 0 ]; then
 fi
 
 docker build -t hinemos-${SERVICE}-base-${HINEMOS_MAJOR}.${HINEMOS_MINOR}:${JRE_TAG} \
-	${SERVICE}/package \
+	${SERVICE}/common/package \
 	--build-arg FROM=hinemos-${SERVICE}-base-${HINEMOS_MAJOR}:openjdk${JAVA_VER}-${OS} \
 	--build-arg MAJOR=${HINEMOS_MAJOR} \
 	--build-arg MINOR=${HINEMOS_MINOR}
