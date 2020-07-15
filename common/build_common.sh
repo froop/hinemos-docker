@@ -11,7 +11,7 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t hinemos-${SERVICE}-${HINEMOS_MAJOR}.x:${JRE_TAG} \
+docker build -t hinemos-${SERVICE}-base-${HINEMOS_MAJOR}:${JRE_TAG} \
 	${SERVICE}/${HINEMOS_MAJOR}/base \
 	--build-arg FROM=hinemos-${SERVICE}-base:${JRE_TAG}
 status=$?
@@ -19,9 +19,9 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-docker build -t hinemos-${SERVICE}-${HINEMOS_MAJOR}.${HINEMOS_MINOR}:${JRE_TAG} \
+docker build -t hinemos-${SERVICE}-base-${HINEMOS_MAJOR}.${HINEMOS_MINOR}:${JRE_TAG} \
 	${SERVICE}/package \
-	--build-arg FROM=hinemos-${SERVICE}-${HINEMOS_MAJOR}.x:openjdk${JAVA_VER}-${OS} \
+	--build-arg FROM=hinemos-${SERVICE}-base-${HINEMOS_MAJOR}:openjdk${JAVA_VER}-${OS} \
 	--build-arg MAJOR=${HINEMOS_MAJOR} \
 	--build-arg MINOR=${HINEMOS_MINOR}
 status=$?
