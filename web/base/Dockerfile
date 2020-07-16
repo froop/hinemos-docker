@@ -1,7 +1,7 @@
 ARG FROM
 FROM ${FROM}
 
-RUN yum -y install unzip vlgothic-p-fonts && yum clean all
+RUN yum -y install vlgothic-p-fonts && yum clean all
 
 EXPOSE 80
 
