@@ -13,6 +13,9 @@ EXPOSE 8080/tcp 8081/tcp 8082/tcp 514/tcp 514/udp 162/udp
 EXPOSE 4000/tcp
 
 COPY run_sql.sh /tmp/common/
-#COPY apply_sql_patches.sh /tmp/
+COPY apply_sql_patches.sh /tmp/
+
+COPY ssl/secure/keystore /root/
+COPY ssl/base_ssl_address.sql /tmp/patch/
 
 CMD ["/sbin/init"]
