@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -u
 
 SERVICE=$1
 JRE_TAG=openjdk${JAVA_VER}-${OS}

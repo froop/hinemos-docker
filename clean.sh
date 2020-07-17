@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -u
 
 docker-compose down --rmi all
 manager/clean.sh
