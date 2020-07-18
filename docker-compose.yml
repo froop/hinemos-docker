@@ -57,6 +57,7 @@ services:
         image: hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:${WEB_TAG}
         ports:
             - '80:80'
+            - '443:443'
         hostname: hinemos_web
         networks:
             hinemos_net:
