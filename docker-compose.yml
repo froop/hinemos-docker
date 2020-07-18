@@ -19,7 +19,6 @@ services:
             hinemos_net:
                 ipv4_address: 172.31.1.10
         container_name: hinemos-manager
-        # privileged: true
         cap_add:
             - SYS_ADMIN
         security_opt:
@@ -57,13 +56,12 @@ services:
         image: hinemos-web-${WEB_MAJOR}.${WEB_MINOR}:${WEB_TAG}
         ports:
             - '80:80'
-            - '443:443'
+            #- '443:443'
         hostname: hinemos_web
         networks:
             hinemos_net:
                 ipv4_address: 172.31.1.12
         container_name: hinemos-web
-        # privileged: true
         cap_add:
             - SYS_ADMIN
         security_opt:
