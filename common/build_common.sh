@@ -30,6 +30,7 @@ echo ===========================================================================
 docker build -t ${DST_TAG} ${SRC_DIR} \
 	--build-arg FROM=${FROM_TAG} \
 	--build-arg MAJOR=${HINEMOS_MAJOR} \
-	--build-arg MINOR=${HINEMOS_MINOR}
+	--build-arg MINOR=${HINEMOS_MINOR} \
+	--build-arg DISTRIBUTION=${DISTRIBUTION}
 
 docker-compose build ${SERVICE}

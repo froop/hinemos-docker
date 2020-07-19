@@ -4,9 +4,10 @@ FROM ${FROM}
 # Hinemos Version
 ARG MAJOR
 ARG MINOR
+ARG DISTRIBUTION
 
 RUN HINEMOS_MANAGER=manager \
-  yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.el.noarch.rpm \
+  yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.noarch.rpm \
   && yum clean all
 
 # for https
