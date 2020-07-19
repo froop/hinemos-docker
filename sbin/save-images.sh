@@ -1,4 +1,10 @@
 #!/bin/bash -eu
 
-docker save hinemos-manager-base-6.2.2 hinemos-web-base-6.2.2 hinemos-agent-base-6.2.2 > hinemos-images.tar
+IMAGE_LIST=$(docker images --format '{{.Repository}}:{{.Tag}}')
+echo Saving images to TAR file.
+echo $IMAGE_LIST
+docker save $IMAGE_LIST > hinemos-images.tar
+
+echo
+echo Compressing files with gzip.
 gzip hinemos-images.tar
