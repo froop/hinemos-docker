@@ -7,7 +7,9 @@ FROM_TAG=hinemos-base:openjdk${JAVA_VER}-${OS}
 CONTEXT=${SERVICE}/base
 DST_TAG=hinemos-${SERVICE}-base:${JRE_TAG}
 echo ================================================================================
-echo ${CONTEXT} "->" ${DST_TAG}
+echo Tag: ${DST_TAG}
+echo From: ${FROM_TAG}
+echo Context: ${CONTEXT}
 echo ================================================================================
 docker build -t ${DST_TAG} ${CONTEXT} \
 	--build-arg FROM=${FROM_TAG}
@@ -16,7 +18,9 @@ FROM_TAG=${DST_TAG}
 CONTEXT=${SERVICE}/${HINEMOS_MAJOR}/base
 DST_TAG=hinemos-${SERVICE}-base-${HINEMOS_MAJOR}:${JRE_TAG}
 echo ================================================================================
-echo ${CONTEXT} "->" ${DST_TAG}
+echo Tag: ${DST_TAG}
+echo From: ${FROM_TAG}
+echo Context: ${CONTEXT}
 echo ================================================================================
 docker build -t ${DST_TAG} ${CONTEXT} \
         --build-arg FROM=${FROM_TAG}
@@ -25,7 +29,9 @@ FROM_TAG=${DST_TAG}
 CONTEXT=${SERVICE}/common/package
 DST_TAG=hinemos-${SERVICE}-base-${HINEMOS_MAJOR}.${HINEMOS_MINOR}:${JRE_TAG}
 echo ================================================================================
-echo ${CONTEXT} "->" ${DST_TAG}
+echo Tag: ${DST_TAG}
+echo From: ${FROM_TAG}
+echo Context: ${CONTEXT}
 echo ================================================================================
 docker build -t ${DST_TAG} ${CONTEXT} \
 	--build-arg FROM=${FROM_TAG} \
