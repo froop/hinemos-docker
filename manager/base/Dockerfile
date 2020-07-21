@@ -14,6 +14,7 @@ EXPOSE 4000/tcp
 
 COPY run_sql.sh /tmp/common/
 COPY apply_sql_patches.sh /tmp/
+#COPY delete_SNMPTRAP_DEFAULT.sql /tmp/patch/
 
 # for https (port 8443, 8444)
 #COPY ssl/secure/keystore /root/
