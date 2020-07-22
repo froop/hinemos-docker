@@ -2,7 +2,7 @@
 
 . .env
 
-export OS=$OS
+export OS_IMAGE=$OS_IMAGE
 export JAVA_VER=$JAVA_VER
 export HINEMOS_MAJOR=$MANAGER_MAJOR
 export HINEMOS_MINOR=$MANAGER_MINOR

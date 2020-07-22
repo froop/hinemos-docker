@@ -1,9 +1,9 @@
 #!/bin/bash -eu
 
 SERVICE=$1
-JRE_TAG=openjdk${JAVA_VER}-${OS}
+JRE_TAG=openjdk${JAVA_VER}-${OS_IMAGE}
 
-FROM_TAG=hinemos-base:openjdk${JAVA_VER}-${OS}
+FROM_TAG=hinemos-base:openjdk${JAVA_VER}-${OS_IMAGE}
 CONTEXT=${SERVICE}/base
 DST_TAG=hinemos-${SERVICE}-base:${JRE_TAG}
 echo ================================================================================

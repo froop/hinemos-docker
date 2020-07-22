@@ -2,8 +2,8 @@
 
 . .env
 
-CONTEXT=base/${OS}
-DST_TAG=${OS}:latest
+CONTEXT=base/${OS_IMAGE}
+DST_TAG=${OS_IMAGE}:latest
 echo ================================================================================
 echo Tag    : ${DST_TAG}
 echo Context: ${CONTEXT}
@@ -12,7 +12,7 @@ docker build -t ${DST_TAG} ${CONTEXT}
 
 FROM_TAG=${DST_TAG}
 CONTEXT=base/openjdk-redhat
-DST_TAG=openjdk-${OS}:${JAVA_VER}
+DST_TAG=openjdk-${OS_IMAGE}:${JAVA_VER}
 echo ================================================================================
 echo Tag    : ${DST_TAG}
 echo From   : ${FROM_TAG}
@@ -24,7 +24,7 @@ docker build -t ${DST_TAG} ${CONTEXT} \
 
 FROM_TAG=${DST_TAG}
 CONTEXT=base/hinemos-base
-DST_TAG=hinemos-base:openjdk${JAVA_VER}-${OS}
+DST_TAG=hinemos-base:openjdk${JAVA_VER}-${OS_IMAGE}
 echo ================================================================================
 echo Tag    : ${DST_TAG}
 echo From   : ${FROM_TAG}
