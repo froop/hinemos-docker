@@ -1,6 +1,5 @@
 #!/bin/bash -eu
 
-cd $1
 shopt -s nullglob
 for sql in ./*.sql
 do
