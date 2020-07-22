@@ -37,6 +37,12 @@ docker-compose down     # 削除(container)
 # バージョン、環境(OS, Java)、ビルド対象ディレクトリ(＝タグ名)を指定
 vi .env
 
+# パッケージ(rpm)ファイル配置
+# ${SERVICE}/${HINEMOS_MAJOR}/${HINEMOS_MINOR}/package/${DISTRIBUTION}
+
+# パッチファイル配置
+# ${SERVICE}/${HINEMOS_MAJOR}/${HINEMOS_MINOR}/${IMAGE_TAG}/patch
+
 # 依存イメージが存在しなければビルド(OS, Java, Hinemos packages)
 docker images
 ./build.sh
