@@ -9,4 +9,6 @@ RUN su hinemos -c '/opt/hinemos/postgresql/bin/pg_ctl start -w -t 90 -s -D /opt/
   && /tmp/apply_sql_patches.sh \
   && su hinemos -c '/opt/hinemos/postgresql/bin/pg_ctl stop -w -t 90 -s -D /opt/hinemos/var/data -m fast'
 
+RUN rm -rf /tmp/patch
+
 WORKDIR /root
