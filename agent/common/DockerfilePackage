@@ -5,15 +5,16 @@ FROM ${FROM}
 ARG MAJOR
 ARG MINOR
 ARG DISTRIBUTION
+ARG ARCHITECTURE
 
-ENV PACKAGE=hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.noarch.rpm
+ENV PACKAGE=hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm
 
 WORKDIR /tmp/package
 COPY ${PACKAGE} ./
 
 RUN HINEMOS_MANAGER=manager \
   yum -y install ${PACKAGE} && yum clean all && rm -f ${PACKAGE}
-#  yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.noarch.rpm \
+#  yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-agent-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm \
 
 RUN rm -rf /tmp/package
 
