@@ -7,6 +7,6 @@ export JAVA_VER=$JAVA_VER
 export HINEMOS_MAJOR=$WEB_MAJOR
 export HINEMOS_MINOR=$WEB_MINOR
 export DISTRIBUTION=$WEB_DIST
-export ARCHITECTURE=x86_64
+export ARCHITECTURE=$WEB_ARCH
 
 common/build_common.sh web
