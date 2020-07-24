@@ -1,4 +1,4 @@
 ARG FROM
 FROM ${FROM}
 
-COPY patch/* /tmp/patch/
+COPY patch_manager6.0.x.sh /tmp/patch/
