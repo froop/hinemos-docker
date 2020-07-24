@@ -25,8 +25,15 @@ echo ===========================================================================
 docker build -t ${DST_TAG} ${CONTEXT} \
         --build-arg FROM=${FROM_TAG}
 
-FROM_TAG=${DST_TAG}
+mkdir -p ${SERVICE}/${HINEMOS_MAJOR}/${HINEMOS_MINOR}/vanilla/patch
+
 CONTEXT=${SERVICE}/${HINEMOS_MAJOR}/${HINEMOS_MINOR}/package/${DISTRIBUTION}
+PACKAGE=hinemos-${HINEMOS_MAJOR}-${SERVICE}-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm
+if [ ! -f ${CONTEXT}/${PACKAGE} ]; then
+	wget -P ${CONTEXT} https://github.com/hinemos/hinemos/releases/download/v${HINEMOS_MAJOR}.${HINEMOS_MINOR}/${PACKAGE}
+fi
+
+FROM_TAG=${DST_TAG}
 DOCKERFILE=${SERVICE}/common/DockerfilePackage
 DST_TAG=hinemos-${SERVICE}-base-${HINEMOS_MAJOR}.${HINEMOS_MINOR}:${JRE_TAG}
 echo ================================================================================
