@@ -13,13 +13,12 @@ WORKDIR /tmp/package
 COPY ${PACKAGE} ./
 
 RUN yum -y install ${PACKAGE} && rm -f ${PACKAGE} \
-#RUN yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-manager-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm \
   && yum clean all \
   && rm -rf /opt/hinemos/sbin/db_init
 
 RUN rm -rf /tmp/package
 
-# VOLUME /opt/hinemos/var/data
+#VOLUME /opt/hinemos/var/data
 
 # enable remote debug
 RUN sed -i "s/#\(.* -Xdebug \)/\1/" /opt/hinemos/etc/hinemos.cfg

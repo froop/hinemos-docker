@@ -12,8 +12,6 @@ ENV PACKAGE=hinemos-${MAJOR}-web-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.${ARCHITECT
 WORKDIR /tmp/package
 COPY ${PACKAGE} ./
 
-RUN yum -y install ${PACKAGE} && rm -f ${PACKAGE} \
-#RUN yum -y install https://github.com/hinemos/hinemos/releases/download/v${MAJOR}.${MINOR}/hinemos-${MAJOR}-web-${MAJOR}.${MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm \
-  && yum clean all
+RUN yum -y install ${PACKAGE} && rm -f ${PACKAGE} && yum clean all
 
 RUN rm -rf /tmp/package
