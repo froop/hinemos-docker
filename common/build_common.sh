@@ -49,4 +49,4 @@ docker build -t ${DST_TAG} -f ${DOCKERFILE} ${CONTEXT} \
 	--build-arg DISTRIBUTION=${DISTRIBUTION} \
 	--build-arg ARCHITECTURE=${ARCHITECTURE}
 
-docker-compose build ${SERVICE}
+#docker-compose build ${SERVICE}
