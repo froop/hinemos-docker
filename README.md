@@ -9,6 +9,8 @@ git clone https://github.com/froop/hinemos-docker.git
 cd hinemos-docker
 
 ./build.sh              # build images
+docker-compose build
+
 docker-compose up -d    # 起動
 docker-compose stop     # 停止
 docker-compose down     # 削除(container)
@@ -17,6 +19,7 @@ docker-compose down     # 削除(container)
 ```
 
 * ログイン
+
 ```
 1. ブラウザでhttp://localhostにアクセス
 2. 接続先URLをhttp://manager:8080/HinemosWS/に変更
@@ -53,4 +56,29 @@ docker images
 
 # イメージをビルドして起動
 docker-compose up -d --build
+```
+
+## yumリポジトリオフライン化メモ
+
+```
+# ISOファイルをマウント
+# download: https://www.centos.org/download/
+mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom
+
+# yumリポジトリ用HTTPサーバを立てる
+docker pull httpd
+docker run --name yumrepo -d -v "/media/cdrom/:/usr/local/apache2/htdocs/" httpd
+
+# yumリポジトリのIPアドレスをdockerコンテナ用に設定
+vi .env
+#YUM_REPO_IP=172.17.0.2
+
+# 使用するyumリポジトリを切り替え
+vi base/centos7jp/Dockerfile
+#COPY yumrepo/* /etc/yum.repos.d/
+
+# その他
+docker exec -it yumrepo /bin/bash
+docker stop yumrepo
 ```

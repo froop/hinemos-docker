@@ -8,5 +8,6 @@ export HINEMOS_MAJOR=$AGENT_MAJOR
 export HINEMOS_MINOR=$AGENT_MINOR
 export DISTRIBUTION=$AGENT_DIST
 export ARCHITECTURE=$AGENT_ARCH
+export YUM_REPO_IP=$YUM_REPO_IP
 
 common/build_common.sh agent

@@ -12,7 +12,8 @@ echo "From   : ${FROM_TAG}"
 echo "Context: ${CONTEXT}"
 echo "================================================================================"
 docker build -t ${DST_TAG} ${CONTEXT} \
-	--build-arg FROM=${FROM_TAG}
+	--build-arg FROM=${FROM_TAG} \
+	--add-host=docker-host:${YUM_REPO_IP}
 
 FROM_TAG=${DST_TAG}
 CONTEXT=${SERVICE}/${HINEMOS_MAJOR}/base

@@ -1,4 +1,9 @@
 FROM centos:7
+#FROM centos:7.8.2003
+#FROM centos:7.7.1908
+
+# local yum repogitory
+#COPY yumrepo/* /etc/yum.repos.d/
 
 RUN yum -y update && yum clean all
 RUN yum -y install unzip && yum clean all

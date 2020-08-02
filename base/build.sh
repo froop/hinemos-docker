@@ -8,7 +8,8 @@ echo "==========================================================================
 echo "Tag    : ${DST_TAG}"
 echo "Context: ${CONTEXT}"
 echo "================================================================================"
-docker build -t ${DST_TAG} ${CONTEXT}
+docker build -t ${DST_TAG} ${CONTEXT} \
+	--add-host=docker-host:${YUM_REPO_IP}
 
 FROM_TAG=${DST_TAG}
 CONTEXT=base/openjdk-redhat
@@ -20,7 +21,8 @@ echo "Context: ${CONTEXT}"
 echo "================================================================================"
 docker build -t ${DST_TAG} ${CONTEXT} \
 	--build-arg FROM=${FROM_TAG} \
-	--build-arg VERSION=${JAVA_VER}
+	--build-arg VERSION=${JAVA_VER} \
+	--add-host=docker-host:${YUM_REPO_IP}
 
 FROM_TAG=${DST_TAG}
 CONTEXT=base/hinemos-base
@@ -31,4 +33,5 @@ echo "From   : ${FROM_TAG}"
 echo "Context: ${CONTEXT}"
 echo "================================================================================"
 docker build -t ${DST_TAG} ${CONTEXT} \
-	--build-arg FROM=${FROM_TAG}
+	--build-arg FROM=${FROM_TAG} \
+	--add-host=docker-host:${YUM_REPO_IP}
