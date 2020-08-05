@@ -1,0 +1,4 @@
+#!/bin/bash -eu
+# Dummy SELinux command.
+# https://github.com/hinemos/hinemos/issues/2
+echo Disabled
