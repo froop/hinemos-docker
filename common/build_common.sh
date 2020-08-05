@@ -29,9 +29,14 @@ docker build -t ${DST_TAG} ${CONTEXT} \
 mkdir -p ${SERVICE}/${HINEMOS_MAJOR}/${HINEMOS_MINOR}/vanilla/patch
 
 CONTEXT=${SERVICE}/${HINEMOS_MAJOR}/${HINEMOS_MINOR}/package/${DISTRIBUTION}
-PACKAGE=hinemos-${HINEMOS_MAJOR}-${SERVICE}-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm
-if [ ! -f ${CONTEXT}/${PACKAGE} ]; then
-	wget -P ${CONTEXT} https://github.com/hinemos/hinemos/releases/download/v${HINEMOS_MAJOR}.${HINEMOS_MINOR}/${PACKAGE}
+
+if [ ${HINEMOS_MAJOR} = "5.0" ]; then
+	PACKAGE=hinemos-${SERVICE}-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm
+else
+	PACKAGE=hinemos-${HINEMOS_MAJOR}-${SERVICE}-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm
+	if [ ! -f ${CONTEXT}/${PACKAGE} ]; then
+		wget -P ${CONTEXT} https://github.com/hinemos/hinemos/releases/download/v${HINEMOS_MAJOR}.${HINEMOS_MINOR}/${PACKAGE}
+	fi
 fi
 
 FROM_TAG=${DST_TAG}
@@ -45,9 +50,6 @@ echo "Dockerfile: ${DOCKERFILE}"
 echo "================================================================================"
 docker build -t ${DST_TAG} -f ${DOCKERFILE} ${CONTEXT} \
 	--build-arg FROM=${FROM_TAG} \
-	--build-arg MAJOR=${HINEMOS_MAJOR} \
-	--build-arg MINOR=${HINEMOS_MINOR} \
-	--build-arg DISTRIBUTION=${DISTRIBUTION} \
-	--build-arg ARCHITECTURE=${ARCHITECTURE}
+	--build-arg PACKAGE=${PACKAGE}
 
 #docker-compose build ${SERVICE}
