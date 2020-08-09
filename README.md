@@ -40,7 +40,8 @@ docker-compose down     # 削除(container)
 # バージョン、環境(OS, Java)、ビルド対象ディレクトリ(＝タグ名)を指定
 vi .env
 
-# パッケージ(rpm)ファイル配置
+# パッケージ(rpm)ファイル配置(オフライン環境の場合のみ)
+# ＊オンラインの場合、https://github.com/hinemos から自動ダウンロード
 # ${SERVICE}/${HINEMOS_MAJOR}/${HINEMOS_MINOR}/package/${DISTRIBUTION}
 
 # パッチファイル配置
