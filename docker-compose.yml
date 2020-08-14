@@ -34,6 +34,8 @@ services:
             args:
                 - FROM_TAG=hinemos-agent-base-${AGENT_MAJOR}.${AGENT_MINOR}:openjdk${JAVA_VER}-${OS_IMAGE}
         image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:${AGENT_TAG}
+        ports:
+            - '161:161/udp'
         hostname: hinemos-agent
         networks:
             hinemos_net:
