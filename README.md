@@ -13,8 +13,8 @@ docker-compose build
 
 docker-compose up -d    # 起動
 docker-compose stop     # 停止
-docker-compose down     # 削除(container)
-# docker-compose down -v  # 削除(with volume)
+docker-compose down     # 削除
+
 ./clean.sh              # clean images
 ```
 
@@ -81,5 +81,11 @@ vi base/centos7jp/Dockerfile
 
 # その他
 docker exec -it yumrepo /bin/bash
-docker stop yumrepo
+```
+
+## fluentdメモ
+
+```
+docker build -t flentd-http test/fluentd
+docker run -d --name fluentd -p 8888:8888 flentd-http
 ```
