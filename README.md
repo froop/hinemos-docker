@@ -86,6 +86,7 @@ docker exec -it yumrepo /bin/bash
 ## fluentdメモ
 
 ```
-docker build -t flentd-http test/fluentd
-docker run -d --name fluentd -p 8888:8888 flentd-http
+docker build -t fluentd-http test/fluentd
+docker run -d --name fluentd -p 8888:8888 fluentd-http
+docker inspect -f '{{.NetworkSettings.IPAddress}}' fluentd
 ```
