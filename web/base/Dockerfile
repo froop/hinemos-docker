@@ -8,5 +8,3 @@ EXPOSE 80
 # for https
 #COPY ssl/secure/.keystore /opt/hinemos_web/
 #COPY ssl/base-ssl-patch.sh /tmp/patch/
-
-CMD ["/sbin/init"]
