@@ -72,6 +72,7 @@ docker pull httpd
 docker run --name yumrepo -d -v "/media/cdrom/:/usr/local/apache2/htdocs/" httpd
 
 # yumリポジトリのIPアドレスをdockerコンテナ用に設定
+docker inspect -f '{{.NetworkSettings.IPAddress}}' yumrepo
 vi .env
 #YUM_REPO_IP=172.17.0.2
 
