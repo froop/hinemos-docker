@@ -9,8 +9,11 @@ RUN systemctl enable snmpd.service
 
 EXPOSE 8080/tcp 8081/tcp 8082/tcp 514/tcp 514/udp 162/udp
 
-# for remote debug
+# remote debug
 EXPOSE 4000/tcp
+
+# JMX
+EXPOSE 7100/tcp
 
 COPY run_sql.sh /tmp/common/
 COPY apply_sql_patches.sh /tmp/
