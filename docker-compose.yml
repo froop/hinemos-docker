@@ -18,9 +18,11 @@ services:
         networks:
             hinemos_net:
                 ipv4_address: 172.31.1.10
+        #network_mode: host
         container_name: hinemos-manager
         cap_add:
             - SYS_ADMIN
+            - NET_ADMIN
         security_opt:
             - seccomp:unconfined
         volumes:
