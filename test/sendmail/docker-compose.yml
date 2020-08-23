@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    smtp:
+        build:
+            context: .
+        image: sendmail
+        #ports:
+        #    - '25:25'
+        hostname: smtp
+        networks:
+            hinemos-docker_hinemos-net:
+                ipv4_address: 172.31.1.20
+        container_name: smtp
+        cap_add:
+            - SYS_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        restart: unless-stopped
+
+networks:
+    hinemos-docker_hinemos-net:
+        external: true

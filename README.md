@@ -84,6 +84,15 @@ vi base/centos7jp/Dockerfile
 docker exec -it yumrepo /bin/bash
 ```
 
+## テスト用コンテナ
+
+```
+# sendmail
+# 172.31.1.20:25 root@smtp
+docker-compose -f test/sendmail/docker-compose.yml up -d --build
+test/sendmail/login.sh
+```
+
 ## fluentdメモ
 
 ```
