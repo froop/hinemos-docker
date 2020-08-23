@@ -91,12 +91,10 @@ docker exec -it yumrepo /bin/bash
 # 172.31.1.20:25 root@smtp
 docker-compose -f test/sendmail/docker-compose.yml up -d --build
 test/sendmail/login.sh
-```
 
-## fluentdメモ
-
-```
-docker build -t fluentd-http test/fluentd
-docker run -d --name fluentd -p 8888:8888 fluentd-http
-docker inspect -f '{{.NetworkSettings.IPAddress}}' fluentd
+# fluentd
+# http://172.31.1.21:8888/
+docker-compose -f test/fluentd/docker-compose.yml up -d --build
+test/fluentd/login.sh
+ls /fluentd/log
 ```

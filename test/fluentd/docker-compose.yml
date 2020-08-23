@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    fluentd:
+        build:
+            context: .
+        image: fluentd-http
+        #ports:
+        #    - '8888:8888'
+        hostname: fluentd
+        networks:
+            hinemos-docker_hinemos-net:
+                ipv4_address: 172.31.1.21
+        container_name: fluentd
+        restart: unless-stopped
+
+networks:
+    hinemos-docker_hinemos-net:
+        external: true
