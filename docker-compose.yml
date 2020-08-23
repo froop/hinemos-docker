@@ -16,7 +16,7 @@ services:
             - '4000:4000'
         hostname: hinemos_manager
         networks:
-            hinemos_net:
+            hinemos-net:
                 ipv4_address: 172.31.1.10
         #network_mode: host
         container_name: hinemos-manager
@@ -38,9 +38,10 @@ services:
         image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:${AGENT_TAG}
         ports:
             - '161:161/udp'
+            - '24005:24005'
         hostname: hinemos-agent
         networks:
-            hinemos_net:
+            hinemos-net:
                 ipv4_address: 172.31.1.11
         container_name: hinemos-agent
         cap_add:
@@ -63,7 +64,7 @@ services:
             #- '443:443'
         hostname: hinemos_web
         networks:
-            hinemos_net:
+            hinemos-net:
                 ipv4_address: 172.31.1.12
         container_name: hinemos-web
         cap_add:
@@ -75,7 +76,7 @@ services:
         restart: unless-stopped
 
 networks:
-    hinemos_net:
+    hinemos-net:
         ipam:
             driver: default
             config:
