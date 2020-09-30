@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    reverse-proxy:
+        build:
+            context: .
+        image: nginx-rproxy
+        ports:
+            - '8181:80'
+        hostname: reverse-proxy
+        networks:
+            hinemos-docker_hinemos-net:
+                ipv4_address: 172.31.1.22
+        container_name: reverse-proxy
+        restart: unless-stopped
+
+networks:
+    hinemos-docker_hinemos-net:
+        external: true
