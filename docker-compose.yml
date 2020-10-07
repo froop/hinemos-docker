@@ -43,6 +43,7 @@ services:
         networks:
             hinemos-net:
                 ipv4_address: 172.31.1.11
+        #network_mode: host
         container_name: hinemos-agent
         cap_add:
             - SYS_ADMIN

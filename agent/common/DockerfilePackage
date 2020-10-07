@@ -13,3 +13,7 @@ RUN rm -rf /tmp/package
 
 # for https
 #RUN sed -i "s|http://manager:8081|https://manager:8444|" /opt/hinemos_agent/conf/Agent.properties
+
+# for JMX (change java.rmi.server.hostname to public IP)
+#EXPOSE 7100/tcp
+#RUN sed -i "s/#JVM_JCONSOLE_OPTS=\"/JVM_JCONSOLE_OPTS=\"-Djava.rmi.server.hostname=18.181.226.15 -Dcom.sun.management.jmxremote.rmi.port=7100 /" /opt/hinemos_agent/conf/hinemos_agent.cfg
