@@ -16,4 +16,4 @@ RUN rm -rf /tmp/package
 
 # for JMX (change java.rmi.server.hostname to public IP)
 #EXPOSE 7100/tcp
-#RUN sed -i "s/#JVM_JCONSOLE_OPTS=\"/JVM_JCONSOLE_OPTS=\"-Djava.rmi.server.hostname=18.181.226.15 -Dcom.sun.management.jmxremote.rmi.port=7100 /" /opt/hinemos_agent/conf/hinemos_agent.cfg
+#RUN sed -i "s/#JVM_JCONSOLE_OPTS=\"/JVM_JCONSOLE_OPTS=\"-Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.rmi.port=7100 /" /opt/hinemos_agent/conf/hinemos_agent.cfg
