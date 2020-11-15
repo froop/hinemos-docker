@@ -92,6 +92,13 @@ docker exec -it yumrepo /bin/bash
 docker-compose -f test/sendmail/docker-compose.yml up -d --build
 test/sendmail/login.sh
 
+# bind
+# /etc/resolv.conf
+# nameserver 172.31.1.23
+# domain test.local
+docker-compose -f test/bind/docker-compose.yml up -d --build
+test/bind/login.sh
+
 # fluentd
 # http://172.31.1.21:8888/
 docker-compose -f test/fluentd/docker-compose.yml up -d --build

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    smtp:
+        build:
+            context: .
+        image: bind
+        #ports:
+        #     - '53:53/udp'
+        #     - '53:53/tcp'
+        hostname: dns
+        networks:
+            hinemos-docker_hinemos-net:
+                ipv4_address: 172.31.1.23
+        container_name: dns
+        cap_add:
+            - SYS_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        restart: unless-stopped
+
+networks:
+    hinemos-docker_hinemos-net:
+        external: true
