@@ -1,5 +1,5 @@
 FROM centos7jp:latest
 
-RUN yum -y install net-tools tcpdump traceroute firewalld  && yum clean all
+RUN yum -y install firewalld net-tools tcpdump traceroute && yum clean all
 
 WORKDIR /root
