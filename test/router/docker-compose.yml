@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+    router1:
+        build:
+            context: .
+        image: router1
+        hostname: router1
+        networks:
+            hinemos-docker_hinemos-net:
+                ipv4_address: 172.31.1.200
+            hinemos-docker_hinemos-net2:
+                ipv4_address: 172.31.2.200
+        container_name: router1
+        cap_add:
+            - SYS_ADMIN
+            - NET_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        restart: unless-stopped
+
+networks:
+    hinemos-docker_hinemos-net:
+        external: true
+    hinemos-docker_hinemos-net2:
+        external: true
+
