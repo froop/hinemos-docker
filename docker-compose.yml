@@ -40,7 +40,7 @@ services:
         image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}:${AGENT_TAG}
         ports:
             - '161:161/udp'
-            - '24005:24005'
+            - '24005:24005/udp'
         hostname: hinemos-agent
         networks:
             hinemos-net:
