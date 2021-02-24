@@ -25,6 +25,7 @@ services:
         cap_add:
             - SYS_ADMIN
             - NET_ADMIN
+            - SYS_RESOURCE
         security_opt:
             - seccomp:unconfined
         volumes:
@@ -51,6 +52,7 @@ services:
         container_name: hinemos-agent
         cap_add:
             - SYS_ADMIN
+            - NET_ADMIN
         security_opt:
             - seccomp:unconfined
         volumes:
