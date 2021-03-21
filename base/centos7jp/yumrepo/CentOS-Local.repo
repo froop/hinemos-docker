@@ -1,6 +1,6 @@
 [c7-local]
 name=CentOS-$releasever - Local
-baseurl=http://docker-host/
+baseurl=http://docker-host:8090/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7

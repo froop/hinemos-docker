@@ -15,7 +15,7 @@ echo "Context: ${CONTEXT}"
 echo "================================================================================"
 docker build -t ${DST_TAG} ${CONTEXT} \
 	--build-arg FROM=${FROM_TAG} \
-	--add-host=docker-host:${YUM_REPO_IP}
+	--add-host=docker-host:${LOCAL_IP}
 
 FROM_TAG=${DST_TAG}
 CONTEXT=${MAJOR_DIR}/base

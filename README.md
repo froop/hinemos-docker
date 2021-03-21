@@ -69,12 +69,11 @@ mount /dev/cdrom /media/cdrom
 
 # yumリポジトリ用HTTPサーバを立てる
 docker pull httpd
-docker run --name yumrepo -d -v "/media/cdrom/:/usr/local/apache2/htdocs/" httpd
+docker run --name yumrepo -d -p 8090:80 -v "/media/cdrom/:/usr/local/apache2/htdocs/" httpd
 
-# yumリポジトリのIPアドレスをdockerコンテナ用に設定
-docker inspect -f '{{.NetworkSettings.IPAddress}}' yumrepo
+# dockerホストのIPアドレスをコンテナ内からの参照用に設定
 vi .env
-#YUM_REPO_IP=172.17.0.2
+#LOCAL_IP=172.30.3.90
 
 # 使用するyumリポジトリを切り替え
 vi base/centos7jp/Dockerfile

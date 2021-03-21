@@ -20,7 +20,7 @@ services:
                 ipv4_address: 172.31.1.10
         #network_mode: host
         extra_hosts:
-            - docker-host:${YUM_REPO_IP}
+            - docker-host:${LOCAL_IP}
         container_name: hinemos-manager
         cap_add:
             - SYS_ADMIN
@@ -48,7 +48,7 @@ services:
                 ipv4_address: 172.31.1.11
         #network_mode: host
         extra_hosts:
-            - docker-host:${YUM_REPO_IP}
+            - docker-host:${LOCAL_IP}
         container_name: hinemos-agent
         cap_add:
             - SYS_ADMIN
@@ -73,7 +73,7 @@ services:
             hinemos-net:
                 ipv4_address: 172.31.1.12
         extra_hosts:
-            - docker-host:${YUM_REPO_IP}
+            - docker-host:${LOCAL_IP}
         container_name: hinemos-web
         cap_add:
             - SYS_ADMIN
