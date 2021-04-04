@@ -3,7 +3,7 @@ FROM centos:7
 #FROM centos:7.7.1908
 
 # local yum repogitory
-#COPY yumrepo/* /etc/yum.repos.d/
+#COPY CentOS-Base.repo /etc/yum.repos.d/
 
 RUN yum -y update && yum clean all
 

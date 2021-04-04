@@ -6,6 +6,7 @@ ARG PACKAGE
 WORKDIR /tmp/package
 COPY ${PACKAGE} ./
 
+#RUN HINEMOS_MANAGER=docker-host \
 RUN HINEMOS_MANAGER=manager \
   yum -y install ${PACKAGE} && yum clean all && rm -f ${PACKAGE}
 
