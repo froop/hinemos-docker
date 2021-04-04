@@ -59,28 +59,26 @@ docker images
 docker-compose up -d --build
 ```
 
-## yumリポジトリオフライン化メモ
+## インターネット上のyumリポジトリが使えない環境用
+
+インターネットに接続できるPCを経由する。  
+→PCとDockerホストの間にSSHトンネルを開ける(remote port forwarding)。
 
 ```
-# ISOファイルをマウント
-# download: https://www.centos.org/download/
-mkdir /media/cdrom
-mount /dev/cdrom /media/cdrom
+# PCからDockerホストへ接続する Tera Term に設定追加 (TERATERM.INI)
+DefaultForwarding=R22080:mirror.centos.org:80
 
-# yumリポジトリ用HTTPサーバを立てる
-docker pull httpd
-docker run --name yumrepo -d -p 8090:80 -v "/media/cdrom/:/usr/local/apache2/htdocs/" httpd
+# Dockerホストで外部(コンテナ内)からのポートフォワードを許可
+vi /etc/ssh/sshd_config
+#GatewayPorts yes
 
-# dockerホストのIPアドレスをコンテナ内からの参照用に設定
+# DockerホストのIPアドレスをコンテナ内からの参照用に設定
 vi .env
 #LOCAL_IP=172.30.3.90
 
 # 使用するyumリポジトリを切り替え
 vi base/centos7jp/Dockerfile
-#COPY yumrepo/* /etc/yum.repos.d/
-
-# その他
-docker exec -it yumrepo /bin/bash
+#COPY CentOS-Base.repo /etc/yum.repos.d/
 ```
 
 ## テスト用コンテナ
