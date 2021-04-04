@@ -59,6 +59,28 @@ docker images
 docker-compose up -d --build
 ```
 
+## コンテナへのログイン
+
+* docker exec
+
+```
+manager: docker exec -it hinemos-manager /bin/bash
+agent  : docker exec -it hinemos-agent /bin/bash
+web    : docker exec -it hinemos-web /bin/bash
+```
+
+* local port forwarding
+
+```
+# TERATERM.INI
+DefaultForwarding=L10022:172.31.1.10:22;L11022:172.31.1.11:22;L12022:172.31.1.12:22
+
+# command
+manager: "C:\Program Files (x86)\teraterm\ttermpro.exe" /ssh2 /auth=password /user=root /passwd=password localhost:10022
+agent  : "C:\Program Files (x86)\teraterm\ttermpro.exe" /ssh2 /auth=password /user=root /passwd=password localhost:11022
+web    : "C:\Program Files (x86)\teraterm\ttermpro.exe" /ssh2 /auth=password /user=root /passwd=password localhost:12022
+```
+
 ## インターネット上のyumリポジトリが使えない環境用
 
 インターネットに接続できるPCを経由する。  
