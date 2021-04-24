@@ -42,6 +42,7 @@ services:
         ports:
             - '161:161/udp'
             - '24005:24005/udp'
+            - '4001:4001'
         hostname: hinemos-agent
         networks:
             hinemos-net:
