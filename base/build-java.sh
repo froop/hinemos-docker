@@ -2,9 +2,9 @@
 
 . .env
 
-FROM_TAG=${OS_IMAGE}:latest
+FROM_TAG=frooprogrammer/${OS_IMAGE}:latest
 CONTEXT=base/openjdk-redhat
-DST_TAG=openjdk-${OS_IMAGE}:${JAVA_VER}
+DST_TAG=frooprogrammer/openjdk-${OS_IMAGE}:${JAVA_VER}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"

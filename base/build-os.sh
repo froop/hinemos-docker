@@ -3,7 +3,7 @@
 . .env
 
 CONTEXT=base/${OS_IMAGE}
-DST_TAG=${OS_IMAGE}:latest
+DST_TAG=frooprogrammer/${OS_IMAGE}:latest
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "Context: ${CONTEXT}"

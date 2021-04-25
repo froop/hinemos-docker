@@ -2,9 +2,9 @@
 
 . .env
 
-FROM_TAG=openjdk-${OS_IMAGE}:${JAVA_VER}
+FROM_TAG=frooprogrammer/openjdk-${OS_IMAGE}:${JAVA_VER}
 CONTEXT=base/hinemos-base
-DST_TAG=hinemos-base-openjdk${JAVA_VER}-${OS_IMAGE}
+DST_TAG=frooprogrammer/hinemos-base-openjdk${JAVA_VER}-${OS_IMAGE}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"
