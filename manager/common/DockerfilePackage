@@ -3,14 +3,16 @@ FROM ${FROM}
 
 ARG PACKAGE
 
-WORKDIR /tmp/package
-COPY ${PACKAGE} ./
+COPY ${PACKAGE} /tmp/
 
-RUN yum -y install ${PACKAGE} && rm -f ${PACKAGE} \
+WORKDIR /tmp/patch/
+RUN yum -y install /tmp/${PACKAGE} \
   && yum clean all \
-  && rm -rf /opt/hinemos/sbin/db_init
+  && rm -rf /opt/hinemos/sbin/db_init \
+  && /tmp/patch_manager.sh
+WORKDIR /root
 
-RUN rm -rf /tmp/package
+RUN rm -f /tmp/${PACKAGE}
 
 #VOLUME /opt/hinemos/var/data
 

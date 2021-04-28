@@ -4,5 +4,6 @@ shopt -s nullglob
 for patch in ./*.sh
 do
 	echo run $patch
-	/bin/bash -c $patch
+	/bin/bash -c "$patch"
+	rm -f "$patch"
 done
