@@ -6,6 +6,4 @@ COPY patch/* ./
 
 RUN /tmp/apply_patches.sh
 
-RUN rm -rf /tmp/patch
-
 WORKDIR /root
