@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    ubuntu1804:
+        build:
+            context: .
+        image: ubuntu1804
+        hostname: ubuntu1804
+        networks:
+            hinemos-docker_hinemos-net:
+                ipv4_address: 172.31.1.24
+        container_name: ubuntu1804
+        restart: unless-stopped
+
+networks:
+    hinemos-docker_hinemos-net:
+        external: true

@@ -123,4 +123,9 @@ test/bind/login.sh
 docker-compose -f test/fluentd/docker-compose.yml up -d --build
 test/fluentd/login.sh
 ls /fluentd/log
+
+# Ubuntu 18.04 (hinemos_agent)
+# 172.31.1.24
+docker-compose -f test/ubuntu1804/docker-compose.yml up -d --build
+test/ubuntu1804/login.sh
 ```
