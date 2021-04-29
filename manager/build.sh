@@ -11,3 +11,7 @@ export ARCHITECTURE=$MANAGER_ARCH
 export LOCAL_IP=$LOCAL_IP
 
 common/build_common.sh manager
+
+if test -e manager/${MANAGER_MAJOR}/${MANAGER_MINOR}/restore/hinemos_pgdump.zip ; then
+  manager/build-restore.sh
+fi

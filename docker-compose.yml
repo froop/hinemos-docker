@@ -7,6 +7,7 @@ services:
             dockerfile: ../../../common/DockerfilePatch
             args:
                 - FROM_TAG=frooprogrammer/hinemos-manager-base-${MANAGER_MAJOR}.${MANAGER_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}
+                #- FROM_TAG=frooprogrammer/hinemos-manager-restored-${MANAGER_MAJOR}.${MANAGER_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}
         image: hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'

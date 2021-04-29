@@ -1,0 +1,13 @@
+ARG FROM
+FROM ${FROM}
+
+COPY hinemos_pgdump.zip /tmp/
+
+WORKDIR /tmp/
+RUN  su hinemos -c '/opt/hinemos/postgresql/bin/pg_ctl start -w -t 90 -s -D /opt/hinemos/var/data -l /opt/hinemos/var/log/postgresql.log' \
+  && unzip hinemos_pgdump.zip \
+  && /opt/hinemos/sbin/mng/hinemos_restore.sh hinemos_pgdump \
+  && rm hinemos_pgdump hinemos_pgdump.zip \
+  && su hinemos -c '/opt/hinemos/postgresql/bin/pg_ctl stop -w -t 90 -s -D /opt/hinemos/var/data -m fast'
+
+WORKDIR /root
