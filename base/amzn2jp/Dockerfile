@@ -1,6 +1,6 @@
 FROM amazonlinux:2
 
-RUN yum -y update && yum clean all
+#RUN yum -y update && yum clean all
 RUN yum -y install glibc-langpack-ja && yum clean all
 
 # locale
