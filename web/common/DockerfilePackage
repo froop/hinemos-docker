@@ -9,3 +9,9 @@ COPY ${PACKAGE} ./
 RUN yum -y install ${PACKAGE} && rm -f ${PACKAGE} && yum clean all
 
 RUN rm -rf /tmp/package
+
+
+# enable remote debug
+RUN echo >> /opt/hinemos_web/conf/hinemos_web.cfg
+RUN echo 'CATALINA_OPTS="${CATALINA_OPTS} -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4002,suspend=n"' \
+  >> /opt/hinemos_web/conf/hinemos_web.cfg
