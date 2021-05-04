@@ -1,0 +1,7 @@
+#!/bin/bash -eu
+
+BRANCH=buildlinux
+curl https://api.github.com/repos/froop/hinemos/commits/${BRANCH} 2>&1 | \
+  grep '"date"' | tail -n 1 > $(dirname $0)/lastupdate.txt
+
+docker build -t hinemos-agent-base-6.2.2-openjdk8-centos7jp:${BRANCH} --build-arg BRANCH=${BRANCH} $(dirname $0)
