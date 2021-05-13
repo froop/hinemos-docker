@@ -1,0 +1,24 @@
+ARG FROM
+FROM ${FROM}
+
+RUN yum -y install java-1.8.0-openjdk rsyslog && yum -y clean all
+
+COPY patch_manager.sh /tmp/
+
+ARG PACKAGE
+COPY ${PACKAGE} /tmp/
+
+RUN cd /tmp \
+  && tar -xzvf ${PACKAGE} \
+  && cd Hinemos_Manager-4.1.4_rhel6_64/ \
+  && sed -i 's/1\.7\.0/1.8.0/' install.cfg \
+  && sed -i 's/java version/openjdk version/' install.cfg
+# ./manager_installer_JP.sh
+# sed -i 's/java version "1\.7\.0\.*"/openjdk version "1.8.0.*"/' /opt/hinemos/bin/jvm_start.sh
+# sed -i 's/MaxTenuringThreshold=32/MaxTenuringThreshold=15/' /opt/hinemos/bin/jvm_start.sh
+# sed -i 's/1\.7\.0/1.8.0/' /opt/hinemos/hinemos.cfg
+# /opt/hinemos/bin/hinemos_start.sh
+    
+RUN rm -f /tmp/${PACKAGE}
+
+WORKDIR /root
