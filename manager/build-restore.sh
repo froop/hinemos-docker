@@ -1,7 +1,7 @@
 #!/bin/bash -eu
 
 . .env
-JRE_TAG=openjdk${JAVA_VER}-${OS_IMAGE}
+JRE_TAG=${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
 
 DST_TAG=frooprogrammer/hinemos-manager-restored-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JRE_TAG}
 FROM_TAG=frooprogrammer/hinemos-manager-base-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JRE_TAG}

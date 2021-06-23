@@ -2,7 +2,7 @@ ARG FROM
 FROM ${FROM}
 
 # install packeges
-RUN yum -y install net-snmp rsyslog sudo && yum clean all
+RUN yum -y install net-snmp rsyslog hostname sudo && yum clean all
 
 RUN systemctl enable snmpd.service || chkconfig snmpd on
 

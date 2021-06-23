@@ -1,4 +1,4 @@
-FROM frooprogrammer/openjdk-devel-centos7jp:8 AS builder
+FROM frooprogrammer/openjdk-devel-centos7jp:1.8.0 AS builder
 
 RUN yum -y install git wget \
  && yum clean all
@@ -22,5 +22,5 @@ RUN ant -f HinemosCommon/build.xml
 RUN ant -f HinemosWorkers/build_agent.xml
 
 # Multi-stage
-FROM frooprogrammer/hinemos-agent-base-6.2.2-openjdk8-centos7jp
+FROM frooprogrammer/hinemos-agent-base-6.2.2-openjdk1.8.0-centos7jp
 COPY --from=builder /root/hinemos/HinemosWorkers/build/jar/HinemosAgent.jar /opt/hinemos_agent/lib

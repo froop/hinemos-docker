@@ -1,4 +1,7 @@
-FROM frooprogrammer/openjdk-devel-centos7jp:8 AS builder
+FROM frooprogrammer/openjdk-centos7jp:1.8.0 AS builder
+
+RUN yum -y install java-1.8.0-openjdk-devel \
+ && yum clean all
 
 RUN yum -y install git wget \
  && yum clean all
@@ -21,7 +24,7 @@ RUN ant -f HinemosCommon/build.xml
 RUN ant -f HinemosManager/build.xml all_quick
 
 # Multi-stage
-FROM frooprogrammer/hinemos-manager-restored-6.2.2-openjdk8-centos7jp
+FROM frooprogrammer/hinemos-manager-restored-6.2.2-openjdk1.8.0-centos7jp
 COPY --from=builder /root/hinemos/HinemosManager/build/jar/HinemosManager.jar /opt/hinemos/lib
 COPY --from=builder /root/hinemos/HinemosManager/build/jar/HinemosManagerRhel.jar /opt/hinemos/lib
 RUN chown hinemos:hinemos /opt/hinemos/lib/HinemosManager.jar

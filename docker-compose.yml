@@ -6,9 +6,9 @@ services:
             context: manager/${MANAGER_MAJOR}/${MANAGER_MINOR}/${MANAGER_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=frooprogrammer/hinemos-manager-base-${MANAGER_MAJOR}.${MANAGER_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}
-                #- FROM_TAG=frooprogrammer/hinemos-manager-restored-${MANAGER_MAJOR}.${MANAGER_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}
-        image: hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}:${MANAGER_TAG}
+                - FROM_TAG=frooprogrammer/hinemos-manager-base-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
+                #- FROM_TAG=frooprogrammer/hinemos-manager-restored-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
+        image: hinemos-manager-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${MANAGER_TAG}
         ports:
             - '8080-8082:8080-8082'
             - '514:514'
@@ -38,8 +38,8 @@ services:
             context: agent/${AGENT_MAJOR}/${AGENT_MINOR}/${AGENT_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=frooprogrammer/hinemos-agent-base-${AGENT_MAJOR}.${AGENT_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}
-        image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}:${AGENT_TAG}
+                - FROM_TAG=frooprogrammer/hinemos-agent-base-${AGENT_MAJOR}.${AGENT_MINOR}-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
+        image: hinemos-agent-${AGENT_MAJOR}.${AGENT_MINOR}-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${AGENT_TAG}
         ports:
             - '161:161/udp'
             - '24005:24005/udp'
@@ -65,8 +65,8 @@ services:
             context: web/${WEB_MAJOR}/${WEB_MINOR}/${WEB_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=frooprogrammer/hinemos-web-base-${WEB_MAJOR}.${WEB_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}
-        image: hinemos-web-${WEB_MAJOR}.${WEB_MINOR}-openjdk${JAVA_VER}-${OS_IMAGE}:${WEB_TAG}
+                - FROM_TAG=frooprogrammer/hinemos-web-base-${WEB_MAJOR}.${WEB_MINOR}-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
+        image: hinemos-web-${WEB_MAJOR}.${WEB_MINOR}-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${WEB_TAG}
         ports:
             - '80:80'
             #- '443:443'
