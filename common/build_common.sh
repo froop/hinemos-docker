@@ -19,7 +19,7 @@ docker build -t ${DST_TAG} ${CONTEXT} \
 
 FROM_TAG=${DST_TAG}
 CONTEXT=${MAJOR_DIR}/base
-DST_TAG=hinemos-${SERVICE}-base-${HINEMOS_MAJOR}-${JRE_TAG}
+DST_TAG=hinemos-${SERVICE}-major-base-${JRE_TAG}:${HINEMOS_MAJOR}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"
@@ -46,7 +46,7 @@ fi
 
 FROM_TAG=${DST_TAG}
 DOCKERFILE=${SERVICE}/common/DockerfilePackage
-DST_TAG=frooprogrammer/hinemos-${SERVICE}-base-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-${JRE_TAG}
+DST_TAG=frooprogrammer/hinemos-${SERVICE}-package-${JRE_TAG}:${HINEMOS_MAJOR}.${HINEMOS_MINOR}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"

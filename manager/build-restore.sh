@@ -3,8 +3,8 @@
 . .env
 JRE_TAG=${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
 
-DST_TAG=frooprogrammer/hinemos-manager-restored-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JRE_TAG}
-FROM_TAG=frooprogrammer/hinemos-manager-base-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JRE_TAG}
+DST_TAG=frooprogrammer/hinemos-manager-restored-${JRE_TAG}:${MANAGER_MAJOR}.${MANAGER_MINOR}
+FROM_TAG=frooprogrammer/hinemos-manager-package-${JRE_TAG}:${MANAGER_MAJOR}.${MANAGER_MINOR}
 CONTEXT=manager/${MANAGER_MAJOR}/${MANAGER_MINOR}/restore
 DOCKERFILE=manager/common/DockerfileRestore
 echo "================================================================================"
