@@ -2,6 +2,7 @@
 
 . .env
 
+export REPOSITORY=$REPOSITORY
 export OS_IMAGE=$OS_IMAGE
 export JAVA_IMAGE=$JAVA_IMAGE
 export JAVA_VER=$JAVA_VER
