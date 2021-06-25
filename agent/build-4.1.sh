@@ -8,10 +8,10 @@ MAJOR_DIR=${SERVICE}/${AGENT_MAJOR}
 MINOR_DIR=${MAJOR_DIR}/${AGENT_MINOR}
 PACKAGE=hinemos_agent-${AGENT_MAJOR}.${AGENT_MINOR}_rhel5-7.tar.gz
 
-FROM_TAG=frooprogrammer/hinemos-base-${JRE_TAG}
+FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
 CONTEXT=${MINOR_DIR}/package
 DOCKERFILE=${MAJOR_DIR}/common/DockerfilePackage
-DST_TAG=frooprogrammer/hinemos-${SERVICE}-base-${AGENT_MAJOR}.${AGENT_MINOR}-${JRE_TAG}
+DST_TAG=${REPOSITORY}/hinemos-${SERVICE}-base-${AGENT_MAJOR}.${AGENT_MINOR}-${JRE_TAG}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"

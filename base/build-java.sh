@@ -2,9 +2,9 @@
 
 . .env
 
-FROM_TAG=frooprogrammer/${OS_IMAGE}:latest
+FROM_TAG=${REPOSITORY}/${OS_IMAGE}:latest
 CONTEXT=base/${JAVA_IMAGE}
-DST_TAG=frooprogrammer/${JAVA_IMAGE}-${OS_IMAGE}:${JAVA_VER}
+DST_TAG=${REPOSITORY}/${JAVA_IMAGE}-${OS_IMAGE}:${JAVA_VER}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"

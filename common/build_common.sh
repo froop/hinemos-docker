@@ -5,7 +5,7 @@ JRE_TAG=${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
 MAJOR_DIR=${SERVICE}/${HINEMOS_MAJOR}
 MINOR_DIR=${MAJOR_DIR}/${HINEMOS_MINOR}
 
-FROM_TAG=frooprogrammer/hinemos-base-${JRE_TAG}
+FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
 CONTEXT=${SERVICE}/base
 DST_TAG=hinemos-${SERVICE}-base-${JRE_TAG}
 echo "================================================================================"
@@ -46,7 +46,7 @@ fi
 
 FROM_TAG=${DST_TAG}
 DOCKERFILE=${SERVICE}/common/DockerfilePackage
-DST_TAG=frooprogrammer/hinemos-${SERVICE}-package-${JRE_TAG}:${HINEMOS_MAJOR}.${HINEMOS_MINOR}
+DST_TAG=${REPOSITORY}/hinemos-${SERVICE}-package-${JRE_TAG}:${HINEMOS_MAJOR}.${HINEMOS_MINOR}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"

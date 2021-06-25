@@ -8,10 +8,10 @@ MAJOR_DIR=${SERVICE}/${MANAGER_MAJOR}
 MINOR_DIR=${MAJOR_DIR}/${MANAGER_MINOR}
 PACKAGE=hinemos_manager-${MANAGER_MAJOR}.${MANAGER_MINOR}_rhel6_64.tar.gz
 
-FROM_TAG=frooprogrammer/hinemos-base-${JRE_TAG}
+FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
 CONTEXT=${MINOR_DIR}/package
 DOCKERFILE=${MAJOR_DIR}/common/DockerfilePackage
-DST_TAG=frooprogrammer/hinemos-${SERVICE}-base-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JRE_TAG}
+DST_TAG=${REPOSITORY}/hinemos-${SERVICE}-base-${MANAGER_MAJOR}.${MANAGER_MINOR}-${JRE_TAG}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"
