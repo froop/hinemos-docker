@@ -10,16 +10,18 @@ services:
                 #- FROM_TAG=${REPOSITORY}/hinemos-manager-restored-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}
         image: hinemos-manager-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}-${MANAGER_TAG}
         ports:
-            - '8080-8082:8080-8082'
+            - '8080-8081:8080-8081'
+            #- '8443-8444:8443-8444'
+            - '8082:8082'
             - '514:514'
             - '514:514/udp'
             - '162:162/udp'
-            - '4000:4000'
+            #- '4000:4000' # remote debug
+            #- '7100:7100' # JMX
         hostname: hinemos_manager
         networks:
             hinemos-net:
                 ipv4_address: 172.31.1.10
-        #network_mode: host
         extra_hosts:
             - docker-host:${LOCAL_IP}
         container_name: hinemos-manager
@@ -43,12 +45,11 @@ services:
         ports:
             - '161:161/udp'
             - '24005:24005/udp'
-            - '4001:4001'
+            #- '4001:4001' # remote debug
         hostname: hinemos-agent
         networks:
             hinemos-net:
                 ipv4_address: 172.31.1.11
-        #network_mode: host
         extra_hosts:
             - docker-host:${LOCAL_IP}
         container_name: hinemos-agent
@@ -70,7 +71,7 @@ services:
         ports:
             - '80:80'
             #- '443:443'
-            - '4002:4002'
+            #- '4002:4002' # remote debug
         hostname: hinemos_web
         networks:
             hinemos-net:
