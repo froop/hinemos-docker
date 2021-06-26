@@ -15,8 +15,9 @@ RUN cd /tmp \
   && sed -i 's/java-1\.7\.0-openjdk java-1\.6\.0-openjdk/java-1.8.0-openjdk java-1.7.0-openjdk java-1.6.0-openjdk/' install.cfg \
   && ./agent_installer_JP.sh -i -m 172.31.1.10 -s \
   && sed -i 's/java version/[java|openjdk] version/' /opt/hinemos_agent/bin/agent_start.sh \
-  && sed -i 's/MaxTenuringThreshold=32/MaxTenuringThreshold=15/' /opt/hinemos_agent/bin/agent_start.sh
-    
-RUN rm -f /tmp/${PACKAGE}
+  && sed -i 's/MaxTenuringThreshold=32/MaxTenuringThreshold=15/' /opt/hinemos_agent/bin/agent_start.sh \
+  && rm -f /tmp/${PACKAGE}
+
+RUN chkconfig --add hinemos_agent
 
 WORKDIR /root
