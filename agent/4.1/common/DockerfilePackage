@@ -5,18 +5,20 @@ RUN yum -y install java-1.8.0-openjdk net-snmp rsyslog && yum -y clean all
 
 COPY getenforce /usr/sbin/
 
-ARG PACKAGE
-COPY ${PACKAGE} /tmp/
+ARG MINOR_VER
+COPY hinemos_agent-4.1.${MINOR_VER}_rhel5-7.tar.gz /tmp/
 
 RUN cd /tmp \
-  && tar -zxvf ${PACKAGE} \
-  && cd Hinemos_Agent-4.1.* \
+  && tar -zxvf hinemos_agent-4.1.${MINOR_VER}_rhel5-7.tar.gz \
+  && cd Hinemos_Agent-4.1.${MINOR_VER}_rhel5-7 \
   && sed -i 's/java version "1\.\[6|7\]\.0\.\*"/java version "1.[6|7|8].0.*"/' install.cfg \
   && sed -i 's/java-1\.7\.0-openjdk java-1\.6\.0-openjdk/java-1.8.0-openjdk java-1.7.0-openjdk java-1.6.0-openjdk/' install.cfg \
   && ./agent_installer_JP.sh -i -m 172.31.1.10 -s \
   && sed -i 's/java version/[java|openjdk] version/' /opt/hinemos_agent/bin/agent_start.sh \
   && sed -i 's/MaxTenuringThreshold=32/MaxTenuringThreshold=15/' /opt/hinemos_agent/bin/agent_start.sh \
-  && rm -f /tmp/${PACKAGE}
+  && cd .. \
+  && rm -rf Hinemos_Agent-4.1.${MINOR_VER}_rhel5-7 \
+  && rm -f hinemos_agent-4.1.${MINOR_VER}_rhel5-7.tar.gz
 
 RUN chkconfig --add hinemos_agent
 

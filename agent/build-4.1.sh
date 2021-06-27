@@ -6,7 +6,6 @@ SERVICE=agent
 JRE_TAG=${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
 MAJOR_DIR=${SERVICE}/${AGENT_MAJOR}
 MINOR_DIR=${MAJOR_DIR}/${AGENT_MINOR}
-PACKAGE=hinemos_agent-${AGENT_MAJOR}.${AGENT_MINOR}_rhel5-7.tar.gz
 
 FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
 CONTEXT=${MINOR_DIR}/package
@@ -20,5 +19,5 @@ echo "Dockerfile: ${DOCKERFILE}"
 echo "================================================================================"
 docker build -t ${DST_TAG} -f ${DOCKERFILE} ${CONTEXT} \
 	--build-arg FROM=${FROM_TAG} \
-	--build-arg PACKAGE=${PACKAGE} \
+	--build-arg MINOR_VER=${AGENT_MINOR} \
 	--add-host=docker-host:${LOCAL_IP}

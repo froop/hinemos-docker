@@ -6,16 +6,17 @@ RUN yum -y install java-1.8.0-openjdk rsyslog && yum -y clean all
 COPY patch_manager.sh /tmp/
 COPY getenforce /usr/sbin/
 
-ARG PACKAGE
-COPY ${PACKAGE} /tmp/
+ARG MINOR_VER
+COPY hinemos_manager-4.1.${MINOR_VER}_rhel6_64.tar.gz /tmp/
 
 RUN cd /tmp \
-  && tar -xzvf ${PACKAGE} \
-  && cd Hinemos_Manager-4.1.4_rhel6_64/ \
+  && tar -xzvf hinemos_manager-4.1.${MINOR_VER}_rhel6_64.tar.gz \
+  && cd Hinemos_Manager-4.1.${MINOR_VER}_rhel6_64 \
   && sed -i 's/1\.7\.0/1.8.0/' install.cfg \
   && sed -i 's/openjdk\.x86_64/openjdk/' install.cfg \
-  && sed -i 's/java version/openjdk version/' install.cfg
-    
-RUN rm -f /tmp/${PACKAGE}
+  && sed -i 's/java version/openjdk version/' install.cfg \
+  && cd .. \
+#  && rm -rf Hinemos_Manager-4.1.${MINOR_VER}_rhel6_64 \
+  && rm -f hinemos_manager-4.1.${MINOR_VER}_rhel6_64.tar.gz
 
 WORKDIR /root
