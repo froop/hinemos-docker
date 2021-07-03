@@ -1,4 +1,4 @@
-FROM centos7jp:latest
+FROM frooprogrammer/centos7jp:latest
 EXPOSE 25
 
 RUN yum -y install sendmail sendmail-cf mailx && yum clean all

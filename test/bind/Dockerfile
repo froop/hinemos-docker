@@ -1,4 +1,4 @@
-FROM centos7jp:latest
+FROM frooprogrammer/centos7jp:latest
 EXPOSE 53/udp
 EXPOSE 53/tcp
 
