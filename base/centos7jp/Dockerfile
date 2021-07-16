@@ -10,11 +10,13 @@ FROM centos:7.9.2009
 # locale
 ENV LANG ja_JP.utf8
 RUN localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
+RUN sed -i -e '/override_install_langs/s/$/,ja_JP.utf8/g' /etc/yum.conf
+RUN echo 'LANG=ja_JP.utf8' > /etc/locale.conf
 
 # timezone
-RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock \
-    && rm -f /etc/localtime \
-    && ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock
+RUN rm -f /etc/localtime
+RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # systemd
 STOPSIGNAL SIGRTMIN+3
