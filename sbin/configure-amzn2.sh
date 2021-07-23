@@ -27,6 +27,6 @@ chmod +x /usr/local/bin/docker-compose
 
 # git
 yum install -y git
-git clone https://github.com/froop/hinemos-docker.git /home/ec2-user/hinemos-docker
+#git clone https://github.com/froop/hinemos-docker.git /home/ec2-user/hinemos-docker
 
 yum clean all
