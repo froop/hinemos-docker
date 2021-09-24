@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    squid:
+        build:
+            context: .
+        image: squid
+        #ports:
+        #     - '3128:3128'
+        hostname: squid
+        networks:
+            hinemos-docker_hinemos-net:
+                ipv4_address: 172.31.1.25
+        container_name: squid
+        cap_add:
+            - SYS_ADMIN
+        security_opt:
+            - seccomp:unconfined
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+        restart: unless-stopped
+
+networks:
+    hinemos-docker_hinemos-net:
+        external: true
