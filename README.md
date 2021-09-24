@@ -102,30 +102,3 @@ vi .env
 vi base/centos7jp/Dockerfile
 #COPY CentOS-Base.repo /etc/yum.repos.d/
 ```
-
-## テスト用コンテナ
-
-```
-# sendmail
-# 172.31.1.20:25 root@smtp
-docker-compose -f test/sendmail/docker-compose.yml up -d --build
-test/sendmail/login.sh
-
-# bind
-# /etc/resolv.conf
-# nameserver 172.31.1.23
-# domain test.local
-docker-compose -f test/bind/docker-compose.yml up -d --build
-test/bind/login.sh
-
-# fluentd
-# http://172.31.1.21:8888/
-docker-compose -f test/fluentd/docker-compose.yml up -d --build
-test/fluentd/login.sh
-ls /fluentd/log
-
-# Ubuntu 18.04 (hinemos_agent)
-# 172.31.1.24
-docker-compose -f test/ubuntu1804/docker-compose.yml up -d --build
-test/ubuntu1804/login.sh
-```
