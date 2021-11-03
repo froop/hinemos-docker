@@ -1,5 +1,5 @@
-FROM centos:8.3.2011
-#FROM centos:8
+FROM centos:8.4.2105
+#FROM centos:8.3.2011
 
 #RUN yum -y update && yum clean all
 
