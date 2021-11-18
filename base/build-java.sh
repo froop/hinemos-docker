@@ -3,7 +3,7 @@
 . .env
 
 FROM_TAG=${REPOSITORY}/${OS_IMAGE}:latest
-CONTEXT=base/${JAVA_IMAGE}
+CONTEXT=base/java/${JAVA_IMAGE}
 DST_TAG=${REPOSITORY}/${JAVA_IMAGE}-${OS_IMAGE}:${JAVA_VER}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
