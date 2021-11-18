@@ -2,7 +2,7 @@
 
 . .env
 
-CONTEXT=base/${OS_IMAGE}
+CONTEXT=base/os/${OS_IMAGE}
 DST_TAG=${REPOSITORY}/${OS_IMAGE}:latest
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
