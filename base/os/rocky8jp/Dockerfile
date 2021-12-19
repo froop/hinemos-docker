@@ -5,7 +5,7 @@ FROM rockylinux/rockylinux:8.5
 
 # locale
 ENV LANG ja_JP.utf8
-RUN dnf -y install glibc-locale-source langpacks-ja
+RUN dnf -y install glibc-locale-source langpacks-ja && dnf clean all
 RUN echo 'LANG=ja_JP.utf8' > /etc/locale.conf
 
 # timezone
