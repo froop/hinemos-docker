@@ -1,4 +1,4 @@
-FROM oraclelinux:8.4
+FROM oraclelinux:8.5
 
 #RUN yum -y update && yum clean all
 
