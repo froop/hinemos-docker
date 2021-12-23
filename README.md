@@ -69,7 +69,7 @@ agent  : docker exec -it hinemos-agent /bin/bash
 web    : docker exec -it hinemos-web /bin/bash
 ```
 
-* local port forwarding
+* local port forwarding (for Tera Term)
 
 ```
 # TERATERM.INI
@@ -96,7 +96,7 @@ vi /etc/ssh/sshd_config
 
 # DockerホストのIPアドレスをコンテナ内からの参照用に設定
 vi .env
-#LOCAL_IP=172.30.3.90
+#LOCAL_IP=172.30.3.10
 
 # 使用するyumリポジトリを切り替え
 vi base/centos7jp/Dockerfile
