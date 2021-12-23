@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi-init
+FROM registry.access.redhat.com/ubi8/ubi-init:8.5
 
 # locale
 ENV LANG ja_JP.utf8
