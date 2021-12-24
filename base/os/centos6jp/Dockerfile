@@ -3,7 +3,7 @@ FROM centos:6
 #RUN yum -y update && yum clean all
 
 # locale
-ENV LANG ja_JP.utf8
+ENV LANG ja_JP.UTF-8
 RUN localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
 
 # timezone

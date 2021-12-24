@@ -4,8 +4,8 @@ FROM amazonlinux:2
 RUN yum -y install glibc-langpack-ja && yum clean all
 
 # locale
-ENV LANG ja_JP.utf8
-RUN echo LANG=ja_JP.utf8 > /etc/locale.conf
+ENV LANG ja_JP.UTF-8
+RUN echo LANG=ja_JP.UTF-8 > /etc/locale.conf
 
 # timezone
 RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock \
