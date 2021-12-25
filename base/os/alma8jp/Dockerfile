@@ -1,4 +1,4 @@
-FROM almalinux:8.4
+FROM almalinux:8.5
 
 # locale
 RUN dnf -y install glibc-langpack-ja \
