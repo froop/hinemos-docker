@@ -37,11 +37,13 @@ CONTEXT=${MINOR_DIR}/package/${DISTRIBUTION}
 
 if [ ${HINEMOS_MAJOR} = "5.0" ]; then
 	PACKAGE=hinemos-${SERVICE}-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm
+	PACKAGE_URL=https://ja.osdn.net/dl/hinemos/${PACKAGE}
 else
 	PACKAGE=hinemos-${HINEMOS_MAJOR}-${SERVICE}-${HINEMOS_MAJOR}.${HINEMOS_MINOR}-1.${DISTRIBUTION}.${ARCHITECTURE}.rpm
-	if [ ! -f ${CONTEXT}/${PACKAGE} ]; then
-		wget -P ${CONTEXT} https://github.com/hinemos/hinemos/releases/download/v${HINEMOS_MAJOR}.${HINEMOS_MINOR}/${PACKAGE}
-	fi
+	PACKAGE_URL=https://github.com/hinemos/hinemos/releases/download/v${HINEMOS_MAJOR}.${HINEMOS_MINOR}/${PACKAGE}
+fi
+if [ ! -f ${CONTEXT}/${PACKAGE} ]; then
+	wget -P ${CONTEXT} ${PACKAGE_URL}
 fi
 
 FROM_TAG=${DST_TAG}
