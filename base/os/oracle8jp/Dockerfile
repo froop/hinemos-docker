@@ -1,11 +1,10 @@
 FROM oraclelinux:8.5
 
-#RUN yum -y update && yum clean all
-
 # locale
-RUN dnf -y install glibc-langpack-ja && yum clean all
+RUN dnf -y install glibc-langpack-ja \
+ && dnf clean all
 ENV LANG ja_JP.UTF-8
-RUN echo 'LANG=ja_JP.UTF-8' > /etc/locale.conf
+RUN echo LANG=$LANG > /etc/locale.conf
 
 # timezone
 RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock
@@ -17,4 +16,5 @@ STOPSIGNAL SIGRTMIN+3
 CMD ["/sbin/init"]
 
 # etc
-RUN dnf -y install tar && yum clean all
+RUN dnf -y install tar \
+ && dnf clean all

@@ -1,11 +1,10 @@
 FROM quay.io/centos/centos:stream9
 
 # locale
-ENV LANG ja_JP.UTF-8
-RUN dnf -y install glibc-locale-source langpacks-ja \
+RUN dnf -y install langpacks-ja \
  && dnf clean all
-RUN localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
-RUN echo 'LANG=ja_JP.UTF-8' > /etc/locale.conf
+ENV LANG ja_JP.UTF-8
+RUN echo LANG=$LANG > /etc/locale.conf
 
 # timezone
 RUN dnf -y reinstall tzdata && dnf clean all # workaround
