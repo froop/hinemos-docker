@@ -1,7 +1,7 @@
 FROM quay.io/centos/centos:stream9
 
 # locale
-RUN dnf -y install langpacks-ja \
+RUN dnf -y install glibc-langpack-ja \
  && dnf clean all
 ENV LANG ja_JP.UTF-8
 RUN echo LANG=$LANG > /etc/locale.conf
