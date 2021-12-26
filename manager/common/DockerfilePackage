@@ -23,3 +23,4 @@ RUN rm -f /tmp/${PACKAGE}
 
 # enable remote debug
 RUN sed -i "s/#\(.* -Xdebug \)/\1/" /opt/hinemos/etc/hinemos.cfg
+#RUN sed -i "s/#\(.* -Xdebug \)/\1/" /opt/hinemos/hinemos.cfg # for ver.5.0
