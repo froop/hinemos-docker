@@ -2,7 +2,6 @@
 
 systemctl stop hinemos_manager
 systemctl start hinemos_pg
-export PGPASSWORD=hinemos
 
 /opt/hinemos/sbin/mng/hinemos_clear_tmp.sh
 /opt/hinemos/sbin/mng/hinemos_delete.sh -J
