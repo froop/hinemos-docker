@@ -6,8 +6,8 @@ services:
             context: agent/${AGENT_MAJOR}/${AGENT_MINOR}/${AGENT_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=${REPOSITORY}/hinemos-agent-package-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}
-        image: hinemos-agent-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}-${AGENT_TAG}
+                - FROM_TAG=${REPOSITORY}/hinemos-agent-package-${JAVA_IMAGE}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}
+        image: hinemos-agent-${JAVA_IMAGE}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}-${AGENT_TAG}
         hostname: hinemos-agent
         network_mode: host
         container_name: hinemos-agent

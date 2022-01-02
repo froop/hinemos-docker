@@ -1,7 +1,7 @@
 #!/bin/bash -u
 
 SERVICE=$1
-JRE_TAG=${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}
+JRE_TAG=${JAVA_IMAGE}-${OS_IMAGE}
 
 docker rmi ${REPOSITORY}/hinemos-${SERVICE}-package-${JRE_TAG}:${HINEMOS_MAJOR}.${HINEMOS_MINOR}
 docker rmi hinemos-${SERVICE}-major-base-${JRE_TAG}:${HINEMOS_MAJOR}

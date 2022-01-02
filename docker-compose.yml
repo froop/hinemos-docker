@@ -6,9 +6,9 @@ services:
             context: manager/${MANAGER_MAJOR}/${MANAGER_MINOR}/${MANAGER_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=${REPOSITORY}/hinemos-manager-package-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}
-                #- FROM_TAG=${REPOSITORY}/hinemos-manager-restored-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}
-        image: hinemos-manager-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}-${MANAGER_TAG}
+                - FROM_TAG=${REPOSITORY}/hinemos-manager-package-${JAVA_IMAGE}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}
+                #- FROM_TAG=${REPOSITORY}/hinemos-manager-restored-${JAVA_IMAGE}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}
+        image: hinemos-manager-${JAVA_IMAGE}-${OS_IMAGE}:${MANAGER_MAJOR}.${MANAGER_MINOR}-${MANAGER_TAG}
         ports:
             - '8080-8081:8080-8081'
             #- '8443-8444:8443-8444'
@@ -40,8 +40,8 @@ services:
             context: agent/${AGENT_MAJOR}/${AGENT_MINOR}/${AGENT_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=${REPOSITORY}/hinemos-agent-package-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}
-        image: hinemos-agent-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}-${AGENT_TAG}
+                - FROM_TAG=${REPOSITORY}/hinemos-agent-package-${JAVA_IMAGE}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}
+        image: hinemos-agent-${JAVA_IMAGE}-${OS_IMAGE}:${AGENT_MAJOR}.${AGENT_MINOR}-${AGENT_TAG}
         ports:
             - '161:161/udp'
             - '24005:24005/udp'
@@ -66,8 +66,8 @@ services:
             context: web/${WEB_MAJOR}/${WEB_MINOR}/${WEB_TAG}
             dockerfile: ../../../common/DockerfilePatch
             args:
-                - FROM_TAG=${REPOSITORY}/hinemos-web-package-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${WEB_MAJOR}.${WEB_MINOR}
-        image: hinemos-web-${JAVA_IMAGE}${JAVA_VER}-${OS_IMAGE}:${WEB_MAJOR}.${WEB_MINOR}-${WEB_TAG}
+                - FROM_TAG=${REPOSITORY}/hinemos-web-package-${JAVA_IMAGE}-${OS_IMAGE}:${WEB_MAJOR}.${WEB_MINOR}
+        image: hinemos-web-${JAVA_IMAGE}-${OS_IMAGE}:${WEB_MAJOR}.${WEB_MINOR}-${WEB_TAG}
         ports:
             - '80:80'
             #- '443:443'
