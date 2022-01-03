@@ -3,21 +3,19 @@ ARG FROM
 FROM ${FROM}
 
 ARG PACKAGE
-
 COPY ${PACKAGE} /tmp/
 
 WORKDIR /tmp/patch/
 RUN yum -y install /tmp/${PACKAGE} \
-  && yum clean all \
-  && rm -rf /opt/hinemos/sbin/db_init \
-  && rm -rf /opt/hinemos/thirdparty \
-  && rm -rf /opt/hinemos/etc.template \
-  && rm -f /opt/hinemos/hinemos*.rpm \
-  && rm -f /opt/hinemos/Hinemos*.msi \
-  && /tmp/patch_manager.sh
+ && yum clean all \
+ && rm -f /tmp/${PACKAGE} \
+ && rm -rf /opt/hinemos/sbin/db_init \
+ && rm -rf /opt/hinemos/thirdparty \
+ && rm -rf /opt/hinemos/etc.template \
+ && rm -f /opt/hinemos/hinemos*.rpm \
+ && rm -f /opt/hinemos/Hinemos*.msi \
+ && /tmp/patch_manager.sh
 WORKDIR /root
-
-RUN rm -f /tmp/${PACKAGE}
 
 #VOLUME /opt/hinemos/var/data
 
