@@ -9,11 +9,11 @@ git clone https://github.com/froop/hinemos-docker.git
 cd hinemos-docker
 
 ./build.sh              # build images
-docker-compose build
+docker compose build
 
-docker-compose up -d    # 起動
-docker-compose stop     # 停止
-docker-compose down     # 削除
+docker compose up -d    # 起動
+docker compose stop     # 停止
+docker compose down     # 削除
 
 ./clean.sh              # clean images
 ```
@@ -56,7 +56,7 @@ docker images
 # web/build.sh
 
 # イメージをビルドして起動
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ## コンテナへのログイン

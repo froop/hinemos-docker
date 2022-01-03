@@ -1,7 +1,7 @@
 # squid
 
 ```
-docker-compose -f test/squid/docker-compose.yml up -d --build
+docker compose -f test/squid/docker-compose.yml up -d --build
 test/squid/login.sh
 ```
 

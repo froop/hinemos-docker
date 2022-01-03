@@ -59,4 +59,4 @@ docker build -t ${DST_TAG} -f ${DOCKERFILE} ${CONTEXT} \
 	--build-arg FROM=${FROM_TAG} \
 	--build-arg PACKAGE=${PACKAGE}
 
-#docker-compose build ${SERVICE}
+#docker compose build ${SERVICE}
