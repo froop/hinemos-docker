@@ -7,10 +7,10 @@ FROM centos:7.9.2009
 
 # locale
 ENV LANG ja_JP.UTF-8
-RUN localedef -f UTF-8 -i ja_JP ja_JP.UTF-8 \
- && sed -i -e '/override_install_langs/s/$/,ja_JP.UTF-8/g' /etc/yum.conf \
- && echo 'LANG=ja_JP.UTF-8' > /etc/locale.conf \
- && echo 'export LANG=ja_JP.UTF-8' >> /root/.bash_profile
+RUN localedef -f UTF-8 -i ja_JP $LANG \
+ && sed -i -e "/override_install_langs/s/$/,${LANG}/g" /etc/yum.conf \
+ && echo LANG=$LANG > /etc/locale.conf \
+ && echo "export LANG=${LANG}" >> /root/.bash_profile
 
 # timezone
 RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock \
