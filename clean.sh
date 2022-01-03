@@ -5,3 +5,4 @@ manager/clean.sh
 agent/clean.sh
 web/clean.sh
 #base/clean.sh
+docker system prune --force
