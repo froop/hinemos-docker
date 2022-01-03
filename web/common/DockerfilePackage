@@ -7,7 +7,7 @@ ARG PACKAGE
 WORKDIR /tmp/package
 COPY ${PACKAGE} ./
 
-RUN yum -y install ${PACKAGE} && rm -f ${PACKAGE} && yum clean all
+RUN yum -y install ${PACKAGE} && yum clean all
 
 RUN rm -rf /tmp/package
 
