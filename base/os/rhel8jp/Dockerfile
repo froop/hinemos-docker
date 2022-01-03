@@ -1,10 +1,10 @@
 FROM registry.access.redhat.com/ubi8/ubi-init:8.5
 
 # locale
-RUN dnf -y install glibc-locale-source \
- && dnf clean all
 ENV LANG ja_JP.UTF-8
-RUN localedef -f UTF-8 -i ja_JP $LANG \
+RUN dnf -y install glibc-locale-source \
+ && dnf clean all \
+ && localedef -f UTF-8 -i ja_JP $LANG \
  && echo LANG=$LANG > /etc/locale.conf
 
 # timezone
