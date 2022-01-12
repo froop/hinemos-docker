@@ -48,7 +48,7 @@ fi
 
 FROM_TAG=${DST_TAG}
 DOCKERFILE=${SERVICE}/common/DockerfilePackage
-DST_TAG=${REPOSITORY}/hinemos-${SERVICE}-package-${JRE_TAG}:${HINEMOS_MAJOR}.${HINEMOS_MINOR}
+DST_TAG=${REPOSITORY}/hinemos-${SERVICE}-${JRE_TAG}:${HINEMOS_MAJOR}.${HINEMOS_MINOR}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"

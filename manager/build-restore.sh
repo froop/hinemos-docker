@@ -4,7 +4,7 @@
 JRE_TAG=${JAVA_IMAGE}-${OS_IMAGE}
 
 DST_TAG=${REPOSITORY}/hinemos-manager-restored-${JRE_TAG}:${MANAGER_MAJOR}.${MANAGER_MINOR}
-FROM_TAG=${REPOSITORY}/hinemos-manager-package-${JRE_TAG}:${MANAGER_MAJOR}.${MANAGER_MINOR}
+FROM_TAG=${REPOSITORY}/hinemos-manager-${JRE_TAG}:${MANAGER_MAJOR}.${MANAGER_MINOR}
 CONTEXT=manager/${MANAGER_MAJOR}/${MANAGER_MINOR}/restore
 DOCKERFILE=manager/common/DockerfileRestore
 echo "================================================================================"
