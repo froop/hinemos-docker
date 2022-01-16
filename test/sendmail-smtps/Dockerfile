@@ -1,12 +1,13 @@
 FROM frooprogrammer/centos7jp:latest
 EXPOSE 465
 
-RUN yum -y install sendmail sendmail-cf mailx && yum clean all
+RUN yum -y install sendmail sendmail-cf mailx openssl \
+ && yum clean all
 
 WORKDIR /etc/mail
-COPY key.pem certs/
-COPY cert.pem certs/
-COPY ca.pem certs/
+COPY secure/key.pem certs/
+COPY secure/cert.pem certs/
+COPY secure/ca.pem certs/
 
 RUN ln -s ca.pem certs/`openssl x509 -noout -hash < certs/ca.pem`.0
 
