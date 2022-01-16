@@ -1,4 +1,4 @@
-# squid
+# squid (172.31.1.25)
 
 ```
 docker compose -f test/squid/docker-compose.yml up -d --build
