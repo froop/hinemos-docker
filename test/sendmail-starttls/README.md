@@ -1,4 +1,4 @@
-# sendmail for STARTTLS (172.31.1.20)
+# sendmail for STARTTLS (port 25, 587) and SMTPS (port 465) (172.31.1.20)
 
 ```
 cd test/sendmail-starttls
@@ -21,4 +21,5 @@ test/sendmail-starttls/login.sh
 #mail
 ```
 
-172.31.1.20:25 root@smtp, user01@smtp, user02@smtp
+172.31.1.20
+root@smtp, user01@smtp, user02@smtp
