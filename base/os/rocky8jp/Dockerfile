@@ -1,4 +1,5 @@
-FROM rockylinux/rockylinux:8.5
+FROM rockylinux:8.5
+#FROM rockylinux/rockylinux:8.5
 #FROM rockylinux/rockylinux:8.4
 
 # locale
