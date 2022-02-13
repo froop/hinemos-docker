@@ -68,6 +68,7 @@ services:
             dockerfile: ../../../common/DockerfilePatch
             args:
                 - FROM_TAG=${REPOSITORY}/hinemos-web-${JAVA_IMAGE}-${OS_IMAGE}:${WEB_MAJOR}.${WEB_MINOR}
+                #- FROM_TAG=${REPOSITORY}/hinemos-web-https-${JAVA_IMAGE}-${OS_IMAGE}:${WEB_MAJOR}.${WEB_MINOR}
         image: hinemos-web-${JAVA_IMAGE}-${OS_IMAGE}:${WEB_MAJOR}.${WEB_MINOR}-${WEB_TAG}
         ports:
             - '80:80'

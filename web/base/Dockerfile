@@ -7,7 +7,3 @@ EXPOSE 80
 
 # remote debug
 EXPOSE 4002/tcp
-
-# for https
-#COPY ssl/secure/.keystore /tmp/patch/
-#COPY ssl/base-ssl-patch.sh /tmp/patch/
