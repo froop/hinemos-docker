@@ -17,7 +17,3 @@ COPY apply_sql_patches.sh /tmp/
 COPY patch_manager.sh /tmp/
 COPY delete_SNMPTRAP_DEFAULT.sql /tmp/patch/
 COPY delete_INFRA_FILE_CONTENT.sql /tmp/patch/
-
-# for https (port 8443, 8444)
-#COPY ssl/secure/keystore /root/
-#COPY ssl/base_ssl_address.sql /tmp/patch/
