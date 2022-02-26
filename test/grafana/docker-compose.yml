@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  grafana:
+    build:
+      context: .
+    image: grafana
+    ports:
+      - '3000:3000'
+    hostname: grafana
+    networks:
+      hinemos-docker_hinemos-net:
+        ipv4_address: 172.31.1.27
+    container_name: grafana
+    restart: unless-stopped
+
+networks:
+  hinemos-docker_hinemos-net:
+    external: true
