@@ -5,6 +5,15 @@ JRE_TAG=${JAVA_IMAGE}-${OS_IMAGE}
 MAJOR_DIR=${SERVICE}/${HINEMOS_MAJOR}
 MINOR_DIR=${MAJOR_DIR}/${HINEMOS_MINOR}
 
+if [ ! -f ${MINOR_DIR}/vanilla/patch/dummy ]; then
+	mkdir -p ${MINOR_DIR}/vanilla/patch
+	touch ${MINOR_DIR}/vanilla/patch/dummy
+fi
+
+if [[ "$(docker images -q ${REPOSITORY}/hinemos-base-${JAVA_IMAGE}-${OS_IMAGE})" == "" ]]; then
+	exit 0
+fi
+
 FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
 CONTEXT=${SERVICE}/base
 DST_TAG=hinemos-${SERVICE}-base-${JRE_TAG}
@@ -27,11 +36,6 @@ echo "Context: ${CONTEXT}"
 echo "================================================================================"
 docker build -t ${DST_TAG} ${CONTEXT} \
         --build-arg FROM=${FROM_TAG}
-
-if [ ! -f ${MINOR_DIR}/vanilla/patch/dummy ]; then
-	mkdir -p ${MINOR_DIR}/vanilla/patch
-	touch ${MINOR_DIR}/vanilla/patch/dummy
-fi
 
 CONTEXT=${MINOR_DIR}/package/${DISTRIBUTION}
 
