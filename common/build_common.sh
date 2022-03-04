@@ -5,9 +5,11 @@ JRE_TAG=${JAVA_IMAGE}-${OS_IMAGE}
 MAJOR_DIR=${SERVICE}/${HINEMOS_MAJOR}
 MINOR_DIR=${MAJOR_DIR}/${HINEMOS_MINOR}
 
-if [ ! -f ${MINOR_DIR}/vanilla/patch/dummy ]; then
-	mkdir -p ${MINOR_DIR}/vanilla/patch
-	touch ${MINOR_DIR}/vanilla/patch/dummy
+VANILLA_DIR=${MINOR_DIR}/vanilla/patch
+if [ ! -d ${VANILLA_DIR} ]; then
+	echo "Create file: ${VANILLA_DIR}/dummy"
+	mkdir -p ${VANILLA_DIR}
+	touch ${VANILLA_DIR}/dummy
 fi
 
 if [[ "$(docker images -q ${REPOSITORY}/hinemos-base-${JAVA_IMAGE}-${OS_IMAGE})" == "" ]]; then
