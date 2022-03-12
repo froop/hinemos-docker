@@ -4,7 +4,7 @@ FROM ${FROM}
 # install packeges
 # RUN yum -y install net-snmp-utils sysstat tcpdump lsof && yum clean all # suggested
 
-EXPOSE 8080/tcp 8081/tcp 8082/tcp 8083/tcp 514/tcp 514/udp 162/udp
+EXPOSE 8080/tcp 8081/tcp 8082/tcp 514/tcp 514/udp 162/udp
 
 # remote debug
 EXPOSE 4000/tcp
