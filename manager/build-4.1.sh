@@ -29,7 +29,7 @@ docker build -t ${DST_TAG} -f ${DOCKERFILE} ${CONTEXT} \
 ## rm -rf /tmp/Hinemos_Manager-4.1.4_rhel6_64
 ## sed -i 's/java version "1\.7\.0\.\*"/openjdk version "1.8.0.*"/' /opt/hinemos/bin/jvm_start.sh
 ## sed -i 's/MaxTenuringThreshold=32/MaxTenuringThreshold=15/' /opt/hinemos/bin/jvm_start.sh
-## sed -i 's/1\.7\.0/1.8.0/' /opt/hinemos/hinemos.cfg
+## sed -i 's/1\.7\.0/1.8.0/' /opt/hinemos/etc/hinemos.cfg
 ## cp -p /opt/hinemos/sbin/service/hinemos_manager /etc/init.d/
 ## chkconfig --add hinemos_manager
 ## exit

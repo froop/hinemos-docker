@@ -20,4 +20,4 @@ WORKDIR /root
 #VOLUME /opt/hinemos/var/data
 
 # enable remote debug
-RUN sed -i "s/#\(.* -Xdebug \)/\1/" /opt/hinemos/hinemos.cfg
+RUN sed -i "s/#\(.* -Xdebug \)/\1/" /opt/hinemos/etc/hinemos.cfg
