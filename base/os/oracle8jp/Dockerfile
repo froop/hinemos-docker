@@ -14,7 +14,3 @@ RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock \
 # systemd
 STOPSIGNAL SIGRTMIN+3
 CMD ["/sbin/init"]
-
-# etc
-RUN dnf -y install tar \
- && dnf clean all
