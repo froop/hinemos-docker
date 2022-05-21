@@ -2,9 +2,8 @@ ARG FROM
 FROM ${FROM}
 
 # install packeges
-RUN yum install -y chkconfig \
+RUN yum install -y net-snmp-utils chkconfig \
  && yum clean all
-#RUN yum -y install net-snmp-utils && yum clean all # suggested
 
 EXPOSE 24005/udp 161/udp
 
