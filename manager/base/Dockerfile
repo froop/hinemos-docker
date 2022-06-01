@@ -2,7 +2,7 @@ ARG FROM
 FROM ${FROM}
 
 # install packeges
-RUN dnf -y install tar && dnf clean all # for Oracle Linux 8
+RUN yum -y install tar && yum clean all # for Oracle Linux 8
 # RUN yum -y install net-snmp-utils sysstat tcpdump lsof && yum clean all # suggested
 
 EXPOSE 8080/tcp 8081/tcp 8082/tcp 514/tcp 514/udp 162/udp
