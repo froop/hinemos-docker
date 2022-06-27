@@ -10,8 +10,8 @@ sudo docker compose up -d --build
 ```
 docker cp test/sendmail-smtps/secure/cert.pem hinemos-manager:/root/
 manager/login.sh
-#keytool -delete -noprompt -keystore /etc/alternatives/jre/lib/security/cacerts -alias smtps -storepass changeit
-#keytool -import -noprompt -trustcacerts -file cert.pem -keystore /etc/alternatives/jre/lib/security/cacerts -alias smtps -storepass changeit
+#keytool -delete -noprompt -keystore /etc/pki/java/cacerts -alias smtps -storepass changeit
+#keytool -import -noprompt -trustcacerts -file cert.pem -keystore /etc/pki/java/cacerts -alias smtps -storepass changeit
 #systemctl restart hinemos_manager
 #exit
 ```
