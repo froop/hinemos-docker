@@ -8,6 +8,7 @@ test/squid/login.sh
 ```
 export http_proxy=http://172.31.1.25:3128
 export https_proxy=http://172.31.1.25:3128
+#export http_proxy=http://user1:password@172.31.1.25:3128
 ```
 
 Basic Authentication
