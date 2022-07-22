@@ -20,7 +20,7 @@ services:
             - '162:162/udp'
             #- '4000:4000' # remote debug
             #- '7100:7100' # JMX
-        hostname: hinemos_manager
+        hostname: hinemos-manager
         networks:
             hinemos-net:
                 ipv4_address: 172.31.1.10
@@ -75,7 +75,7 @@ services:
             - '80:80'
             #- '443:443'
             #- '4002:4002' # remote debug
-        hostname: hinemos_web
+        hostname: hinemos-web
         networks:
             hinemos-net:
                 ipv4_address: 172.31.1.12
