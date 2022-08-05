@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    networks:
+      hinemos-docker_hinemos-net:
+        ipv4_address: 172.31.1.28
+    environment:
+      - POSTGRES_PASSWORD=Password!
+    restart: unless-stopped
+
+networks:
+  hinemos-docker_hinemos-net:
+    external: true
