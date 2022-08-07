@@ -22,7 +22,7 @@ docker build -t ${DST_TAG} -f ${DOCKERFILE} ${CONTEXT} \
 	--build-arg MINOR_VER=${MANAGER_MINOR} \
 	--add-host=docker-host:${LOCAL_IP}
 
-# docker run -d -it --privileged --name hinemos-manager hinemos-manager-base-openjdk1.8.0-amzn1jp:4.1.4
+# docker run -d -it --privileged --name hinemos-manager hinemos-manager-base-openjdk8-centos6jp:4.1.4
 # manager/login.sh
 ## cd /tmp/Hinemos_Manager-4.1.4_rhel6_64
 ## ./manager_installer_JP.sh
@@ -33,5 +33,5 @@ docker build -t ${DST_TAG} -f ${DOCKERFILE} ${CONTEXT} \
 ## cp -p /opt/hinemos/sbin/service/hinemos_manager /etc/init.d/
 ## chkconfig --add hinemos_manager
 ## exit
-# docker commit hinemos-manager frooprogrammer/hinemos-manager-package-openjdk1.8.0-amzn1jp:4.1.4
+# docker commit hinemos-manager frooprogrammer/hinemos-manager-openjdk8-centos6jp:4.1.4
 # docker rm -f hinemos-manager
