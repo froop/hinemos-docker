@@ -10,7 +10,7 @@ MINOR_DIR=${MAJOR_DIR}/${AGENT_MINOR}
 FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
 CONTEXT=${MINOR_DIR}/package
 DOCKERFILE=${MAJOR_DIR}/common/DockerfilePackage
-DST_TAG=${REPOSITORY}/hinemos-${SERVICE}-package-${JRE_TAG}:${AGENT_MAJOR}.${AGENT_MINOR}
+DST_TAG=${REPOSITORY}/hinemos-${SERVICE}-${JRE_TAG}:${AGENT_MAJOR}.${AGENT_MINOR}
 echo "================================================================================"
 echo "Tag    : ${DST_TAG}"
 echo "From   : ${FROM_TAG}"
