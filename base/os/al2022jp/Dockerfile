@@ -11,6 +11,9 @@ RUN echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock \
  && rm -f /etc/localtime \
  && ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
+# yum repo
+COPY fedora.repo /etc/yum.repos.d/fedora.repo
+
 # systemd
 STOPSIGNAL SIGRTMIN+3
 CMD ["/sbin/init"]
