@@ -12,11 +12,11 @@ if [ ! -d ${VANILLA_DIR} ]; then
 	touch ${VANILLA_DIR}/dummy
 fi
 
-if [[ "$(docker images -q ${REPOSITORY}/hinemos-base-${JAVA_IMAGE}-${OS_IMAGE})" == "" ]]; then
+FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
+if [[ "$(docker images -q ${FROM_TAG})" == "" ]]; then
 	exit 0
 fi
 
-FROM_TAG=${REPOSITORY}/hinemos-base-${JRE_TAG}
 CONTEXT=${SERVICE}/base
 DST_TAG=hinemos-${SERVICE}-base-${JRE_TAG}
 echo "================================================================================"
