@@ -12,4 +12,5 @@ echo "From   : ${FROM_TAG}"
 echo "Context: ${CONTEXT}"
 echo "================================================================================"
 docker build -t ${DST_TAG} ${CONTEXT} \
-	--build-arg FROM=${FROM_TAG}
+	--build-arg FROM=${FROM_TAG} \
+	--build-arg DOCKER_HOST_IP=${LOCAL_IP}
