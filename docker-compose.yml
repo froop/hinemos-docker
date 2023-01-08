@@ -36,6 +36,7 @@ services:
         volumes:
             - /sys/fs/cgroup:/sys/fs/cgroup:ro
         restart: unless-stopped
+        shm_size: 128m
 
     agent:
         build:
