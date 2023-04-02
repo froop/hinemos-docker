@@ -1,5 +1,0 @@
-[fedora]
-name=Fedora 36
-metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-36&arch=$basearch
-gpgcheck=1
-gpgkey=https://getfedora.org/static/fedora.gpg
