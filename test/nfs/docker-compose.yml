@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nfs:
+    build:
+      context: .
+    image: nfs
+    container_name: nfs
+    cap_add:
+      - SYS_ADMIN
+    networks:
+      hinemos-docker_hinemos-net:
+        ipv4_address: 172.31.1.29
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /share/nfs:/share/nfs:rw
+    restart: unless-stopped
+
+networks:
+  hinemos-docker_hinemos-net:
+    external: true
