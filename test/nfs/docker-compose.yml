@@ -5,6 +5,7 @@ services:
     build:
       context: .
     image: nfs
+    hostname: nfs
     container_name: nfs
     cap_add:
       - SYS_ADMIN
