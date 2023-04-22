@@ -2,6 +2,7 @@
 
 ```
 docker compose -f test/nfs/docker-compose.yml up -d
+test/nfs/login.sh
 ```
 
 ```
