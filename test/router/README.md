@@ -1,4 +1,11 @@
-# router (NAPT, firewall)
+# router
+
+```
+firewall-cmd --zone=internal --change-interface=eth0
+firewall-cmd --zone=internal --change-interface=eth1
+firewall-cmd --direct --add-rule ipv4 filter FORWARD 0 -i eth0 -o eth1 -j ACCEPT
+firewall-cmd --direct --add-rule ipv4 filter FORWARD 0 -i eth1 -o eth0 -j ACCEPT
+```
 
 ## 各ホストの設定
 ```
@@ -6,7 +13,7 @@ route add -net 172.31.1.0 netmask 255.255.255.0 gw 172.31.2.200 eth0
 route add -net 172.31.2.0 netmask 255.255.255.0 gw 172.31.1.200 eth0
 ```
 
-## NAPT化
+## NAPT
 ```
 firewall-cmd --zone=internal --change-interface=eth1
 firewall-cmd --zone=internal --add-masquerade
