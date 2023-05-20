@@ -1,4 +1,4 @@
-FROM oraclelinux:8.5
+FROM oraclelinux:8.7
 
 # locale
 RUN dnf -y install glibc-langpack-ja \
