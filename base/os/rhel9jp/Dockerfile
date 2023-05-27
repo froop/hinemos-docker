@@ -1,4 +1,4 @@
-FROM redhat/ubi9-init:9.0.0
+FROM redhat/ubi9-init:9.2
 
 # locale
 ENV LANG ja_JP.UTF-8
