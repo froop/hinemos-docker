@@ -1,10 +1,10 @@
 FROM redhat/ubi9-init:9.2
 
 # locale
-ENV LANG ja_JP.UTF-8
 RUN dnf -y install glibc-locale-source \
- && dnf clean all \
- && localedef -f UTF-8 -i ja_JP $LANG \
+ && dnf clean all
+ENV LANG ja_JP.UTF-8
+RUN localedef -f UTF-8 -i ja_JP $LANG \
  && echo LANG=$LANG > /etc/locale.conf
 
 # timezone
